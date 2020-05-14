@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "e-Pharma-admin"
+    }
+  },
+  "defaultProject": "e-Pharma-admin",
+  "cli": {
+    "analytics": "64926089-a080-425e-9389-58924201c2b5"
+  }
 }
