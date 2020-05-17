@@ -1,0 +1,1 @@
+export const baseURL = 'https://e-pharma-server.herokuapp.com/';

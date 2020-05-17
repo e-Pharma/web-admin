@@ -1,7 +1,14 @@
 import { Medicine } from "./medicine";
 
 export class Order {
-  id: string;
+  _id: string;
   name: string;
-  prescription: string;
+  email: string;
+  dilivery_address: string;
+  prescription_url: string;
+  ordered_at: Date;
+  is_reviewed: boolean;
+  is_paid: boolean;
+  is_dispatched: boolean;
+  is_delivered: boolean;
 }

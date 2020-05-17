@@ -1,14 +1,26 @@
-import { Injectable } from '@angular/core';
-import { ORDERS } from 'app/shared/orders';
+import { Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { ProcessHTTPMsgService } from "./process-httpmsg.service";
+// import { ORDERS } from 'app/shared/orders';
+import { Observable, of } from 'rxjs';
+import { Order } from "app/shared/order";
+import { baseURL } from "app/shared/baseurl";
+import { delay, catchError } from "rxjs/operators";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class OrderService {
+  constructor(
+    private http: HttpClient,
+    private processHTTPMsgService: ProcessHTTPMsgService
+  ) {}
 
-  constructor() { }
-
-  getOrders(){
-    return ORDERS;
+  getOrdersToBeReviewed():Observable<any>{
+    console.log("here");
+    // return ORDERS;
+    return this.http
+      .get<any>(baseURL + "admin/orders?value=is_reviewed")
+      .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 }

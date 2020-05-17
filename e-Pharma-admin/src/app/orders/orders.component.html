@@ -80,7 +80,7 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table">
+              <table *ngIf="orders" class="table">
                 <thead class="text-primary">
                   <th>
                     ID
@@ -89,37 +89,34 @@
                     Name
                   </th>
                   <th>
+                    Email
+                  </th>
+                  <th>
                     Address
                   </th>
                   <th>
-                    City
-                  </th>
-                  <th>
-                    Salary
+                    Order date
                   </th>
                 </thead>
 
-                <tbody *ngFor="let order of orders">
-                  
-                    <tr>
-                      <td>
-                        {{ order.id }}
-                      </td>
-                      <td>
-                        {{ order.name }}
-                      </td>
-                      <td>
-                        Niger
-                      </td>
-                      <td>
-                        Oud-Turnhout
-                      </td>
-                      <td class="text-primary">
-                        $36,738
-                      </td>
-                    </tr>
-                  
-                  
+                <tbody *ngFor="let order of orders.data">
+                  <tr>
+                    <td>
+                      {{order._id}}
+                    </td>
+                    <td>
+                      {{order.name}}
+                    </td>
+                    <td>
+                      {{order.email}}
+                    </td>
+                    <td>
+                      {{order.dilivery_address}}
+                    </td>
+                    <td class="text-primary">
+                      {{order.ordered_at}}
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>
