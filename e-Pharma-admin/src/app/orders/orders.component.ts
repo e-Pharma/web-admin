@@ -10,6 +10,8 @@ import { OrderService } from "app/services/order.service";
 export class OrdersComponent implements OnInit {
   orders: any;
   errMsg: string;
+  selected:string;
+  show:boolean;
 
   constructor(
     private orderService: OrderService,
@@ -18,10 +20,20 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit(): void {
     // this.orders = this.orderService.getOrdersToBeReviewed();
-    this.orderService.getOrdersToBeReviewed().subscribe(
+    // this.orderService.getOrdersToBeReviewed().subscribe(
+    //   (orders) => (this.orders = orders),
+    //   (errmsg) => (this.errMsg = <any>errmsg)
+    // );
+    
+  }
+
+  changeView(selected:string){
+    this.show = true;
+    this.selected = selected;
+    this.orderService.getOrders(selected).subscribe(
       (orders) => (this.orders = orders),
       (errmsg) => (this.errMsg = <any>errmsg)
     );
-    
+
   }
 }

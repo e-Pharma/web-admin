@@ -23,4 +23,10 @@ export class OrderService {
       .get<any>(baseURL + "admin/orders?value=is_reviewed")
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
+
+  getOrders(selected:string):Observable<any>{
+    return this.http
+      .get<any>(baseURL+'admin/orders?value='+selected)
+      .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
 }
