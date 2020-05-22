@@ -23,6 +23,7 @@ import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.compon
 import { OrdersComponent } from "./orders/orders.component";
 import { HttpClientModule } from "@angular/common/http";
 import { baseURL } from "./shared/baseurl";
+import { UsersComponent } from './users/users.component';
 
 
 baseURL
@@ -40,7 +41,7 @@ baseURL
     }),
     HttpClientModule,
   ],
-  declarations: [AppComponent, AdminLayoutComponent, OrdersComponent],
+  declarations: [AppComponent, AdminLayoutComponent, OrdersComponent, UsersComponent],
   providers: [
     {provide: 'BaseURL',useValue:baseURL}
   ],
