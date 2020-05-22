@@ -9,10 +9,12 @@ import { MapsComponent } from "../../maps/maps.component";
 import { NotificationsComponent } from "../../notifications/notifications.component";
 import { UpgradeComponent } from "../../upgrade/upgrade.component";
 import { OrdersComponent } from "app/orders/orders.component";
+import { UsersComponent } from "app/users/users.component";
 
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
   { path: "user-profile", component: UserProfileComponent },
+  { path: "users", component: UsersComponent },
   { path: "orders", component: OrdersComponent },
   { path: "table-list", component: TableListComponent },
   { path: "typography", component: TypographyComponent },
