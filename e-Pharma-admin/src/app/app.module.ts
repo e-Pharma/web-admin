@@ -24,6 +24,9 @@ import { OrdersComponent } from "./orders/orders.component";
 import { HttpClientModule } from "@angular/common/http";
 import { baseURL } from "./shared/baseurl";
 import { UsersComponent } from './users/users.component';
+import { OrderdetailsComponent } from './orderdetails/orderdetails.component';
+import { MatFormField, MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
 
 
 baseURL
@@ -40,8 +43,10 @@ baseURL
       apiKey: "YOUR_GOOGLE_MAPS_API_KEY",
     }),
     HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
-  declarations: [AppComponent, AdminLayoutComponent, OrdersComponent, UsersComponent],
+  declarations: [AppComponent, AdminLayoutComponent, OrdersComponent, UsersComponent, OrderdetailsComponent],
   providers: [
     {provide: 'BaseURL',useValue:baseURL}
   ],

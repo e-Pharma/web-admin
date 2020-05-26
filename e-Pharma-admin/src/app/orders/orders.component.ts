@@ -35,5 +35,8 @@ export class OrdersComponent implements OnInit {
       (errmsg) => (this.errMsg = <any>errmsg)
     );
 
+  }   
+
+  reviewOrder(id:string){
   }
 }
