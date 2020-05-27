@@ -27,6 +27,7 @@ import { UsersComponent } from './users/users.component';
 import { OrderdetailsComponent } from './orderdetails/orderdetails.component';
 import { MatFormField, MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
+import {MatDialogModule} from '@angular/material/dialog'; 
 
 
 baseURL
@@ -45,6 +46,7 @@ baseURL
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDialogModule,
   ],
   declarations: [AppComponent, AdminLayoutComponent, OrdersComponent, UsersComponent, OrderdetailsComponent],
   providers: [
