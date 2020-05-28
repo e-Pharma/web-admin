@@ -4,15 +4,15 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class ClientService {
 
-  //Change to baseURL (app/shared) herokuapp later ***********
+  //change to baseURL (app/shared) LATER ************
   baseURI:string = 'http://localhost:3000/admin/';
 
   constructor(private http: HttpClient) { }
 
-  //get all users
-  getUsers(){
-    return this.http.get(this.baseURI+'/users');
+  //get all clients
+  getClients(){
+    return this.http.get(this.baseURI+'clients');
   }
 }
