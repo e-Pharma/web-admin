@@ -1,6 +1,8 @@
-export class User{
+export class Client{
     _id:string;
+    role:string;
     is_verified:boolean;
+    country:string;
     email:string;
     password:string;
     first_name:string;

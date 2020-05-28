@@ -23,11 +23,11 @@ import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.compon
 import { OrdersComponent } from "./orders/orders.component";
 import { HttpClientModule } from "@angular/common/http";
 import { baseURL } from "./shared/baseurl";
-import { UsersComponent } from './users/users.component';
 import { OrderdetailsComponent } from './orderdetails/orderdetails.component';
 import { MatFormField, MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
-import {MatDialogModule} from '@angular/material/dialog'; 
+import {MatDialogModule} from '@angular/material/dialog';
+import { ClientsComponent } from './clients/clients.component'; 
 
 
 baseURL
@@ -48,7 +48,7 @@ baseURL
     MatInputModule,
     MatDialogModule,
   ],
-  declarations: [AppComponent, AdminLayoutComponent, OrdersComponent, UsersComponent, OrderdetailsComponent],
+  declarations: [AppComponent, AdminLayoutComponent, OrdersComponent, OrderdetailsComponent, ClientsComponent],
   providers: [
     {provide: 'BaseURL',useValue:baseURL}
   ],
