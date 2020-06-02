@@ -1,0 +1,14 @@
+.main-div {
+  margin-top: -35px;
+}
+mat-selection-list {
+  height: 40vh;
+  overflow-y: scroll;
+  outline: none;
+}
+::ng-deep.mat-pseudo-checkbox {
+  display: none !important;
+}
+.list {
+  margin-top: -20px;
+}

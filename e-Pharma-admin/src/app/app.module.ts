@@ -28,6 +28,13 @@ import { MatFormField, MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import {MatDialogModule} from '@angular/material/dialog';
 import { ClientsComponent } from './clients/clients.component'; 
+import { AddmedicineComponent } from './addmedicine/addmedicine.component'; 
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { ListFilterPipe } from "./shared/list/pipe";
+import { MatSelectModule } from "@angular/material/select";
+import {MatListModule} from '@angular/material/list'; 
+
+
 
 
 baseURL
@@ -47,8 +54,15 @@ baseURL
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
+    MatAutocompleteModule,
+    MatSelectModule,
+    MatListModule
+    
   ],
-  declarations: [AppComponent, AdminLayoutComponent, OrdersComponent, OrderdetailsComponent, ClientsComponent],
+
+
+  declarations: [AppComponent, AdminLayoutComponent, OrdersComponent, OrderdetailsComponent, AddmedicineComponent, ListFilterPipe,ClientsComponent],
+
   providers: [
     {provide: 'BaseURL',useValue:baseURL}
   ],
