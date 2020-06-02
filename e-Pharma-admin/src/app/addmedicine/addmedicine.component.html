@@ -1,0 +1,31 @@
+<!-- 
+
+
+
+<div>
+    <form>
+      <mat-form-field>
+        <input type="text" matInput [matAutocomplete]="auto" [formControl]="myControl">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let med of filteredMeds | async" [value]="med">
+            {{med}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  
+  
+</div> -->
+
+<div class="row"> 
+  <mat-form-field floatLabel="never">
+    <input
+      matInput
+      class="searching-customer"
+      type="text"
+      placeholder="Search"
+      [ngModel]="searchModel"
+      (ngModelChange)="updateSearchModel($event)"
+    />
+  </mat-form-field>
+</div>
