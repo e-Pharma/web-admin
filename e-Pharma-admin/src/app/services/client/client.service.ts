@@ -12,9 +12,15 @@ export class ClientService {
 
   constructor(private http: HttpClient) { }
 
-  //get all clients
-  getClients(){
-    //return this.http.get(this.baseURI+'clients');
-    return this.http.get(baseURL+'admin/clients');
+  //get verified clients
+  getVerifiedClients(){
+    //return this.http.get(this.baseURI+'verifiedClients');
+    return this.http.get(baseURL+'admin/verifiedClients');
+  }
+
+  //get not verified clients
+  getNotVerifiedClients(){
+    //return this.http.get(this.baseURI+'notVerifiedClients');
+    return this.http.get(baseURL+'admin/notVerifiedClients');
   }
 }

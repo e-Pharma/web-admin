@@ -8,20 +8,29 @@ import { ClientService } from 'app/services/client/client.service';
 })
 export class ClientsComponent implements OnInit {
 
-  Client:any = [];
+  VerifiedClient:any = [];
+  NotVerifiedClient:any = [];
 
   constructor(private clientService:ClientService) { 
-    this.readClient();
+    this.readVerifiedClient();
+    this.readNotVerifiedClient();
   }
 
   ngOnInit(): void {
   }
 
-  readClient(){
-    this.clientService.getClients().subscribe((data)=>{
+  readVerifiedClient(){
+    this.clientService.getVerifiedClients().subscribe((data)=>{
       console.log(data);
-      this.Client=data;
+      this.VerifiedClient=data;
     })
   }
 
+  readNotVerifiedClient(){
+    this.clientService.getNotVerifiedClients().subscribe((data)=>{
+      console.log(data);
+      this.NotVerifiedClient=data;
+    })
+  }
+  
 }

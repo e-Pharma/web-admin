@@ -2,14 +2,15 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
+                <div class="card card-plain">
                     <div class="card-header card-header-danger">
-                        <h4 class="card-title ">Registered Users</h4>
-                </div>
+                        <h4 class="card-title mt-0">Registered Clients</h4>
+                        <p class="card-category">Verified</p>
+                    </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table">
-                                <thead class=" text-primary">
+                            <table class="table table-hover">
+                                <thead class="text-primary">
                                     <th>
                                         NIC
                                     </th>
@@ -27,21 +28,21 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let client of Client">
+                                    <tr *ngFor="let verifiedClient of VerifiedClient">
                                         <td>
-                                            {{client.nic}}
+                                            {{verifiedClient.nic}}
                                         </td>
                                         <td>
-                                            {{client.first_name}}
+                                            {{verifiedClient.first_name}}
                                         </td>
                                         <td>
-                                            {{client.last_name}}
+                                            {{verifiedClient.last_name}}
                                         </td>
                                         <td>
-                                            {{client.email}}
+                                            {{verifiedClient.email}}
                                         </td>
                                         <td>
-                                            {{client.contact_number}}
+                                            {{verifiedClient.contact_number}}
                                         </td>
                                     </tr>
                                 </tbody>
@@ -50,3 +51,56 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title mt-0">Registered Clients</h4>
+                        <p class="card-category"> Not Verified</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-primary">
+                                    <th>
+                                        NIC
+                                    </th>
+                                    <th>
+                                        First Name
+                                    </th>
+                                    <th>
+                                        Last Name
+                                    </th>
+                                    <th>
+                                        Email
+                                    </th>
+                                    <th>
+                                        Contact Number
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let notVerifiedClient of NotVerifiedClient">
+                                        <td>
+                                            {{notVerifiedClient.nic}}
+                                        </td>
+                                        <td>
+                                            {{notVerifiedClient.first_name}}
+                                        </td>
+                                        <td>
+                                            {{notVerifiedClient.last_name}}
+                                        </td>
+                                        <td>
+                                            {{notVerifiedClient.email}}
+                                        </td>
+                                        <td>
+                                            {{notVerifiedClient.contact_number}}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
