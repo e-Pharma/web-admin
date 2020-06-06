@@ -13,4 +13,13 @@ export class Client{
     address:string;
     avatar_url:string;
     registered_at:Date;
+    relations:[{
+        nic:string;
+        first_name:string,
+        last_name:string,
+        dob:Date;
+        relationship:string;
+        contact_number:string;
+        gender:string;
+    }]
 }
