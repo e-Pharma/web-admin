@@ -26,6 +26,9 @@
                                     <th>
                                         Contact Number
                                     </th>
+                                    <th>
+                                        Relations
+                                    </th>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let verifiedClient of VerifiedClient">
@@ -43,6 +46,14 @@
                                         </td>
                                         <td>
                                             {{verifiedClient.contact_number}}
+                                        </td>
+                                        <td>
+                                            <ul *ngFor="let relation of verifiedClient.relations">
+                                                {{relation.relationship}}
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <button mat-raised-button class="btn btn-warning btn-block" [routerLink] = "['/client', verifiedClient._id]">View Client</button>
                                         </td>
                                     </tr>
                                 </tbody>

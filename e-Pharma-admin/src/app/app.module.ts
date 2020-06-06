@@ -25,6 +25,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { baseURL } from "./shared/baseurl";
 import { OrderdetailsComponent } from './orderdetails/orderdetails.component';
 import { MatFormField, MatFormFieldModule } from "@angular/material/form-field";
+import {MatTabsModule} from '@angular/material/tabs';
 import { MatInputModule } from "@angular/material/input";
 import {MatDialogModule} from '@angular/material/dialog';
 import { ClientsComponent } from './clients/clients.component'; 
@@ -32,7 +33,9 @@ import { AddmedicineComponent } from './addmedicine/addmedicine.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ListFilterPipe } from "./shared/list/pipe";
 import { MatSelectModule } from "@angular/material/select";
-import {MatListModule} from '@angular/material/list'; 
+import {MatListModule} from '@angular/material/list';
+import { ViewClientComponent } from './view-client/view-client.component'; 
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 
@@ -56,12 +59,14 @@ baseURL
     MatDialogModule,
     MatAutocompleteModule,
     MatSelectModule,
-    MatListModule
+    MatListModule,
+    MatTabsModule,
+    MatExpansionModule
     
   ],
 
 
-  declarations: [AppComponent, AdminLayoutComponent, OrdersComponent, OrderdetailsComponent, AddmedicineComponent, ListFilterPipe,ClientsComponent],
+  declarations: [AppComponent, AdminLayoutComponent, OrdersComponent, OrderdetailsComponent, AddmedicineComponent, ListFilterPipe,ClientsComponent, ViewClientComponent],
 
   providers: [
     {provide: 'BaseURL',useValue:baseURL}

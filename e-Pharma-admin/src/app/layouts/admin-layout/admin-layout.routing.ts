@@ -10,12 +10,14 @@ import { NotificationsComponent } from "../../notifications/notifications.compon
 import { UpgradeComponent } from "../../upgrade/upgrade.component";
 import { OrdersComponent } from "app/orders/orders.component";
 import { ClientsComponent } from "app/clients/clients.component";
+import { ViewClientComponent } from "app/view-client/view-client.component";
 import { OrderdetailsComponent } from "app/orderdetails/orderdetails.component";
 
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
   { path: "user-profile", component: UserProfileComponent },
   { path: "clients", component: ClientsComponent },
+  { path: "client/:id", component: ViewClientComponent },  
   { path: "orders", component: OrdersComponent },
   { path: "table-list", component: TableListComponent },
   { path: "typography", component: TypographyComponent },
