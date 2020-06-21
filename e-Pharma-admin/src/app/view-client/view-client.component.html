@@ -13,91 +13,91 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <label>National Identity Card (NIC)</label>
-                                            <p>My name is Khan</p>
+                                            <p><strong>{{Client.nic}}</strong></p>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label>First Name</label>
-                                            <p>My name is Khan</p>
                                         </div>
-                                        <div class="col-md-6">
-                                            <label>Last Name</label>
-                                            <p>My name is Khan</p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>First Name</label>
+                                                <p><strong>{{Client.first_name}}</strong></p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Last Name</label>
+                                                <p><strong>{{Client.last_name}}</strong></p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label>Email</label>
-                                            <p>My name is Khan</p>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label>Email</label>
+                                                <p><strong>{{Client.email}}</strong></p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label>Contact Number</label>
-                                            <p>My name is Khan</p>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label>Contact Number</label>
+                                                <p><strong>{{Client.contact_number}}</strong></p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label>Address</label>
-                                            <p>My name is Khan</p>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label>Address</label>
+                                                <p><strong>{{Client.address}}</strong></p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label>Registered Date</label>
-                                            <p>My name is Khan</p>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label>Registered Date</label>
+                                                <p><strong>{{Client.registered_at}}</strong></p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label>Relations</label>
-                                            <mat-accordion>
-                                                <mat-expansion-panel>
-                                                  <mat-expansion-panel-header>
-                                                    <mat-panel-title>
-                                                      Relationship
-                                                    </mat-panel-title>
-                                                  </mat-expansion-panel-header>
-                                                  <div class="row">
-                                                    <div class="col-md-12">
-                                                        <label>National Identity Card (NIC)</label>
-                                                        <p>My name is Khan</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label>First Name</label>
-                                                        <p>My name is Khan</p>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label>Last Name</label>
-                                                        <p>My name is Khan</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <label>Date of Birth</label>
-                                                        <p>My name is Khan</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <label>Contact Number</label>
-                                                        <p>My name is Khan</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <label>Gender</label>
-                                                        <p>My name is Khan</p>
-                                                    </div>
-                                                </div>
-                                                </mat-expansion-panel>
-                                              </mat-accordion>                                              
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label>Relations</label>
+                                                <mat-accordion>
+                                                    <mat-expansion-panel *ngFor="let relation of Client.relations">
+                                                        <mat-expansion-panel-header>
+                                                            <mat-panel-title>
+                                                            {{relation.relationship}}
+                                                            </mat-panel-title>
+                                                        </mat-expansion-panel-header>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label>National Identity Card (NIC)</label>
+                                                                <p>{{relation.nic}}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <label>First Name</label>
+                                                                <p>{{relation.first_name}}</p>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label>Last Name</label>
+                                                                <p>{{relation.last_name}}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label>Date of Birth</label>
+                                                                <p>{{relation.dob}}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label>Gender</label>
+                                                                <p>{{relation.gender}}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <label *ngIf="relation.contact_number">Contact Number</label>
+                                                                <p>{{relation.contact_number}}</p>
+                                                            </div>
+                                                        </div>
+                                                    </mat-expansion-panel>
+                                                </mat-accordion>                                              
+                                            </div>
                                         </div>
-                                    </div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
@@ -105,10 +105,10 @@
                         <div class="col-md-4">
                             <div class="card card-profile">
                                 <div class="card-avatar">
-                                        <img class="img" src="./assets/img/faces/marc.jpg" />
+                                        <img class="img" src={{Client.avatar_url}} />
                                 </div>
                                 <div class="card-body">
-                                    <h4 class="card-title">Alec Thompson</h4>
+                                    <h4 class="card-title"><strong>{{Client.first_name}} {{Client.last_name}}</strong></h4>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +117,63 @@
             </div>          
         </mat-tab>
         <mat-tab label="Order History">
-            Order History
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-plain">
+                            <div class="card-header card-header-danger">
+                                <h4 class="card-title mt-0">{{Client.first_name}} {{Client.last_name}}</h4>
+                                <p class="card-category">Order History</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead class="text-primary">
+                                            <th>
+                                                Order Placed Date
+                                            </th>
+                                            <th>
+                                                Patient(Relationship)
+                                            </th>
+                                            <th>
+                                                Prescription
+                                            </th>
+                                            <th>
+                                                Delivery Address
+                                            </th>
+                                            <th>
+                                                Order Status
+                                            </th>
+                                            <th>
+                                                Order Completed Date
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    
+                                                </td>
+                                                <td>
+                                                    
+                                                </td>
+                                                <td>
+                                                    
+                                                </td>
+                                                <td>
+                                                    
+                                                </td>
+                                                <td>
+                                                    
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </mat-tab>
     </mat-tab-group>      
 </div>
