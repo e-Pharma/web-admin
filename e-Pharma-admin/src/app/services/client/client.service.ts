@@ -9,7 +9,7 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class ClientService {
 
-  //baseURI:string = 'http://localhost:3000/admin/';
+  baseURI:string = 'http://localhost:3000/admin/';
   headers = new HttpHeaders().set('Content-Type','application/json')
 
   constructor(private http: HttpClient) { }
@@ -39,6 +39,21 @@ export class ClientService {
       }),
       catchError(this.errorMgmt)
     );
+  }
+
+  getClientOrders(email:String){
+    return this.http.get(this.baseURI+'clientOrders/'+email).pipe(
+      map((res:Response)=>{
+        return res || {}
+      }),
+      catchError(this.errorMgmt)
+    )
+    // return this.http.get(baseURL+'admin/clientOrders/'+email).pipe(
+    //   map((res:Response)=>{
+    //     return res || {}
+    //   }),
+    //   catchError(this.errorMgmt)
+    // )
   }
 
   //Error handling
