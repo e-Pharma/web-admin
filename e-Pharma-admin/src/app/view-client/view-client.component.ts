@@ -9,13 +9,14 @@ import { ClientService } from 'app/services/client/client.service';
 })
 export class ViewClientComponent implements OnInit {
   Client:any = [];
+  Orders:any = [];
 
   constructor(
     private ClientServeice:ClientService,
     private route:ActivatedRoute
     ) {
       let id = this.route.snapshot.paramMap.get('id');
-      this.readClient(id);  
+      this.readClient(id);
   }
 
   ngOnInit(): void {
@@ -23,10 +24,13 @@ export class ViewClientComponent implements OnInit {
 
   readClient(id){
     this.ClientServeice.getClient(id).subscribe((data)=>{
-      console.log("Hello from view Client")
       console.log(data);
       this.Client=data;
-      console.log(this.Client)
+      let email = this.Client.email;
+      this.ClientServeice.getClientOrders(email).subscribe((data)=>{
+        console.log(data);
+        this.Orders = data;
+      })
     })
   }
 

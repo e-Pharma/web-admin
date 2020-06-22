@@ -136,9 +136,6 @@
                                                 Patient(Relationship)
                                             </th>
                                             <th>
-                                                Prescription
-                                            </th>
-                                            <th>
                                                 Delivery Address
                                             </th>
                                             <th>
@@ -149,21 +146,21 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            <tr *ngFor="let order of Orders">
                                                 <td>
-                                                    
+                                                    {{order.ordered_at}}
                                                 </td>
                                                 <td>
-                                                    
+                                                    {{order.patient}}
                                                 </td>
                                                 <td>
-                                                    
+                                                    {{order.dilivery_address}}
                                                 </td>
                                                 <td>
-                                                    
+                                                    {{order.status}}
                                                 </td>
                                                 <td>
-                                                    
+                                                    {{order.completed_on}}
                                                 </td>
                                             </tr>
                                         </tbody>
