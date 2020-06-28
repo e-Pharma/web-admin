@@ -29,4 +29,10 @@ export class OrderService {
       .get<any>(baseURL+'admin/orders?value='+selected)
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
+
+  getSpecificOrders(id:string):Observable<any>{
+    return this.http
+      .get<any>(baseURL+'admin/order/'+id)
+      .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
 }
