@@ -51,7 +51,8 @@ baseURL
     RouterModule,
     AppRoutingModule,
     AgmCoreModule.forRoot({
-      apiKey: "YOUR_GOOGLE_MAPS_API_KEY",
+      apiKey: "AIzaSyB_INN__LZyi6tnHGA1240QKxXZh8zW_sk",
+      libraries: ['geometry']
     }),
     HttpClientModule,
     MatFormFieldModule,
