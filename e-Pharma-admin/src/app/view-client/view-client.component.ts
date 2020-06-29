@@ -26,7 +26,7 @@ export class ViewClientComponent implements OnInit {
     this.ClientServeice.getClient(id).subscribe((data)=>{
       console.log(data);
       this.Client=data;
-      let email = this.Client.email;
+      let email = this.Client.data.email;
       this.ClientServeice.getClientOrders(email).subscribe((data)=>{
         console.log(data);
         this.Orders = data;

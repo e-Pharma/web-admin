@@ -29,7 +29,7 @@ export class ClientsComponent implements OnInit {
   readNotVerifiedClient(){
     this.clientService.getNotVerifiedClients().subscribe((data)=>{
       console.log(data);
-      this.NotVerifiedClient=data;
+      this.NotVerifiedClient = data;
     })
   }
   
