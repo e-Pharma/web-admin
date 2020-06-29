@@ -13,48 +13,48 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <label>National Identity Card (NIC)</label>
-                                            <p><strong>{{Client.nic}}</strong></p>
+                                            <p><strong>{{Client.data.nic}}</strong></p>
                                         </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>First Name</label>
-                                                <p><strong>{{Client.first_name}}</strong></p>
+                                                <p><strong>{{Client.data.first_name}}</strong></p>
                                             </div>
                                             <div class="col-md-6">
                                                 <label>Last Name</label>
-                                                <p><strong>{{Client.last_name}}</strong></p>
+                                                <p><strong>{{Client.data.last_name}}</strong></p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <label>Email</label>
-                                                <p><strong>{{Client.email}}</strong></p>
+                                                <p><strong>{{Client.data.email}}</strong></p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <label>Contact Number</label>
-                                                <p><strong>{{Client.contact_number}}</strong></p>
+                                                <p><strong>{{Client.data.contact_number}}</strong></p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <label>Address</label>
-                                                <p><strong>{{Client.address}}</strong></p>
+                                                <p><strong>{{Client.data.address}}</strong></p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <label>Registered Date</label>
-                                                <p><strong>{{Client.registered_at}}</strong></p>
+                                                <p><strong>{{Client.data.registered_at}}</strong></p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <label>Relations</label>
                                                 <mat-accordion>
-                                                    <mat-expansion-panel *ngFor="let relation of Client.relations">
+                                                    <mat-expansion-panel *ngFor="let relation of Client.data.relations">
                                                         <mat-expansion-panel-header>
                                                             <mat-panel-title>
                                                             {{relation.relationship}}
@@ -105,10 +105,10 @@
                         <div class="col-md-4">
                             <div class="card card-profile">
                                 <div class="card-avatar">
-                                        <img class="img" src={{Client.avatar_url}} />
+                                        <img class="img" src={{Client.data.avatar_url}} />
                                 </div>
                                 <div class="card-body">
-                                    <h4 class="card-title"><strong>{{Client.first_name}} {{Client.last_name}}</strong></h4>
+                                    <h4 class="card-title"><strong>{{Client.data.first_name}} {{Client.data.last_name}}</strong></h4>
                                 </div>
                             </div>
                         </div>
@@ -146,7 +146,7 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                            <tr *ngFor="let order of Orders">
+                                            <tr *ngFor="let order of Orders.data">
                                                 <td>
                                                     {{order.ordered_at}}
                                                 </td>

@@ -28,7 +28,7 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let verifiedClient of VerifiedClient">
+                                    <tr *ngFor="let verifiedClient of VerifiedClient.data">
                                         <td>
                                             {{verifiedClient.nic}}
                                         </td>
@@ -81,9 +81,9 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let notVerifiedClient of NotVerifiedClient">
+                                    <tr *ngFor="let notVerifiedClient of NotVerifiedClient.data">
                                         <td>
-                                            {{notVerifiedClient.nic}}
+                                            {{notVerifiedClient.first_name}}
                                         </td>
                                         <td>
                                             {{notVerifiedClient.first_name}}
