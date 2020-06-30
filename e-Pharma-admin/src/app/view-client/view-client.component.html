@@ -146,7 +146,7 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                            <tr *ngFor="let order of Orders.data">
+                                            <tr *ngFor="let order of PendingOrders">
                                                 <td>
                                                     {{order.ordered_at}}
                                                 </td>
@@ -157,10 +157,53 @@
                                                     {{order.dilivery_address}}
                                                 </td>
                                                 <td>
-                                                    {{order.status}}
+                                                    <span class="badge badge-warning">{{order.status}}</span>
                                                 </td>
                                                 <td>
                                                     {{order.completed_on}}
+                                                </td>
+                                                <td>
+                                                    <button mat-raised-button class="btn btn-warning btn-block" [routerLink] = "['/client/viewClientOrder', order._id]">Order Details</button>
+                                                </td>
+                                            </tr>
+                                            <tr *ngFor="let order of CompletedOrders">
+                                                <td>
+                                                    {{order.ordered_at}}
+                                                </td>
+                                                <td>
+                                                    {{order.patient}}
+                                                </td>
+                                                <td>
+                                                    {{order.dilivery_address}}
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-success">{{order.status}}</span>
+                                                </td>
+                                                <td>
+                                                    {{order.completed_on}}
+                                                </td>
+                                                <td>
+                                                    <button mat-raised-button class="btn btn-warning btn-block" [routerLink] = "['/client/viewClientOrder', order._id]">Order Details</button>
+                                                </td>
+                                            </tr>
+                                            <tr *ngFor="let order of RejectedOrders">
+                                                <td>
+                                                    {{order.ordered_at}}
+                                                </td>
+                                                <td>
+                                                    {{order.patient}}
+                                                </td>
+                                                <td>
+                                                    {{order.dilivery_address}}
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-danger">{{order.status}}</span>
+                                                </td>
+                                                <td>
+                                                    {{order.completed_on}}
+                                                </td>
+                                                <td>
+                                                    <button mat-raised-button class="btn btn-warning btn-block" [routerLink] = "['/client/viewClientOrder', order._id]">Order Details</button>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -172,5 +215,5 @@
                 </div>
             </div>
         </mat-tab>
-    </mat-tab-group>      
+    </mat-tab-group>    
 </div>

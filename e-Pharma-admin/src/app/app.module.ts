@@ -36,6 +36,7 @@ import { MatSelectModule } from "@angular/material/select";
 import {MatListModule} from '@angular/material/list';
 import { ViewClientComponent } from './view-client/view-client.component'; 
 import {MatExpansionModule} from '@angular/material/expansion';
+import { ViewClientOrderComponent } from './view-client-order/view-client-order.component';
 
 
 
@@ -67,7 +68,7 @@ baseURL
   ],
 
 
-  declarations: [AppComponent, AdminLayoutComponent, OrdersComponent, OrderdetailsComponent, AddmedicineComponent, ListFilterPipe,ClientsComponent, ViewClientComponent],
+  declarations: [AppComponent, AdminLayoutComponent, OrdersComponent, OrderdetailsComponent, AddmedicineComponent, ListFilterPipe,ClientsComponent, ViewClientComponent, ViewClientOrderComponent],
 
   providers: [
     {provide: 'BaseURL',useValue:baseURL}

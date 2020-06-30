@@ -1,0 +1,18 @@
+<div class="main-content">
+    <div>
+        <h3>Prescription(s)</h3>
+        <div *ngFor="let prescription of Order.prescription_url">
+            <div class="container">
+                <img class="img" src={{prescription}} />
+            </div>
+        </div>
+    </div>
+    <div *ngIf=Order.non_prescription>
+        <h3>Non Prescription Items</h3>
+        <div>
+            <ul *ngFor="let item of Order.non_prescription">
+                {{item}}
+            </ul>
+        </div>
+    </div>
+</div>
