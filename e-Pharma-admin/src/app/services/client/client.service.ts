@@ -56,6 +56,15 @@ export class ClientService {
       )
   }
 
+  getClientOrderByID(id:String){
+    return this.http.get(baseURL+'admin/order/'+id).pipe(
+      map((res:Response)=>{
+        return res || {}
+      }),
+      catchError(this.errorMgmt)
+    )
+  }
+
   //Error handling
   errorMgmt(error:HttpErrorResponse){
     let errorMessage = '';
