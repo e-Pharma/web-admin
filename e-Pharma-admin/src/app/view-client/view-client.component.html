@@ -50,7 +50,7 @@
                                                 <p><strong>{{Client.data.registered_at}}</strong></p>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" *ngIf="Client.data.relations.length > 0">
                                             <div class="col-md-12">
                                                 <label>Relations</label>
                                                 <mat-accordion>
@@ -104,7 +104,10 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card card-profile">
-                                <div class="card-avatar">
+                                <div class="card-avatar" *ngIf="Client.data.avatar_url == ''">
+                                    <img class="img" src="https://cdn2.iconfinder.com/data/icons/social-media-flat-line/70/user-512.png" />
+                                </div>
+                                <div class="card-avatar" *ngIf="Client.data.avatar_url">
                                         <img class="img" src={{Client.data.avatar_url}} />
                                 </div>
                                 <div class="card-body">
@@ -122,11 +125,14 @@
                     <div class="col-md-12">
                         <div class="card card-plain">
                             <div class="card-header card-header-danger">
-                                <h4 class="card-title mt-0">{{Client.first_name}} {{Client.last_name}}</h4>
+                                <h4 class="card-title mt-0">{{Client.data.first_name}} {{Client.data.last_name}}</h4>
                                 <p class="card-category">Order History</p>
                             </div>
                             <div class="card-body">
-                                <div class="table-responsive">
+                                <div *ngIf="Orders.data.length == 0">
+                                    <P>No Orders have been placed yet</P>
+                                </div>
+                                <div class="table-responsive" *ngIf="Orders.data.length > 0">
                                     <table class="table table-hover">
                                         <thead class="text-primary">
                                             <th>
