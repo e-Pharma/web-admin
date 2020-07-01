@@ -37,6 +37,8 @@ import {MatListModule} from '@angular/material/list';
 import { ViewClientComponent } from './view-client/view-client.component'; 
 import {MatExpansionModule} from '@angular/material/expansion';
 import { ViewClientOrderComponent } from './view-client-order/view-client-order.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminLoginLayoutComponent } from './layouts/admin-login-layout/admin-login-layout.component';
 
 
 
@@ -68,7 +70,7 @@ baseURL
   ],
 
 
-  declarations: [AppComponent, AdminLayoutComponent, OrdersComponent, OrderdetailsComponent, AddmedicineComponent, ListFilterPipe,ClientsComponent, ViewClientComponent, ViewClientOrderComponent],
+  declarations: [AppComponent, AdminLayoutComponent, OrdersComponent, OrderdetailsComponent, AddmedicineComponent, ListFilterPipe,ClientsComponent, ViewClientComponent, ViewClientOrderComponent, AdminLoginComponent, AdminLoginLayoutComponent],
 
   providers: [
     {provide: 'BaseURL',useValue:baseURL}
