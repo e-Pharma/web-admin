@@ -63,6 +63,7 @@ export class ViewClientComponent implements OnInit {
         
         console.log(this.CompletedOrders);
         console.log(this.PendingOrders);
+        console.log("Order length" + this.Orders.data.length);
       })
     })
   }

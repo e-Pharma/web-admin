@@ -27,28 +27,13 @@ export class ClientService {
   }
 
   getClient(id:String){
-    // return this.http.get(this.baseURI+'client/'+id).pipe(
-    //    map((res:Response)=>{
-    //      return res || {}
-    //    }),
-    //    catchError(this.errorMgmt)
-    //  )
-     return this.http.get(baseURL+'admin/client/'+id).pipe(
-       map((res:Response)=>{
-         return res || {}
-       }),
-       catchError(this.errorMgmt)
-     )
-  }
-
-  getClientOrders(email:String){
-    //  return this.http.get(this.baseURI+'clientOrders/'+email).pipe(
-    //    map((res:Response)=>{
-    //      return res || {}
-    //    }),
-    //    catchError(this.errorMgmt)
-    //  )
-      return this.http.get(baseURL+'admin/clientOrders/'+email).pipe(
+    //  return this.http.get(this.baseURI+'client/'+id).pipe(
+    //     map((res:Response)=>{
+    //       return res || {}
+    //     }),
+    //     catchError(this.errorMgmt)
+    //   )
+      return this.http.get(baseURL+'admin/client/'+id).pipe(
         map((res:Response)=>{
           return res || {}
         }),
@@ -56,13 +41,34 @@ export class ClientService {
       )
   }
 
+  getClientOrders(email:String){
+      // return this.http.get(this.baseURI+'clientOrders/'+email).pipe(
+      //   map((res:Response)=>{
+      //     return res || {}
+      //   }),
+      //   catchError(this.errorMgmt)
+      // )
+      return this.http.get(baseURL+'admin/clientOrders/'+email).pipe(
+        map((res:Response)=>{
+          return res || {}
+        }),
+        catchError(this.errorMgmt)
+       )
+  }
+
   getClientOrderByID(id:String){
+    // return this.http.get(this.baseURI+'order/'+id).pipe(
+    //   map((res:Response)=>{
+    //     return res || {}
+    //   }),
+    //   catchError(this.errorMgmt)
+    // )
     return this.http.get(baseURL+'admin/order/'+id).pipe(
-      map((res:Response)=>{
-        return res || {}
-      }),
-      catchError(this.errorMgmt)
-    )
+       map((res:Response)=>{
+         return res || {}
+       }),
+       catchError(this.errorMgmt)
+     )
   }
 
   //Error handling
