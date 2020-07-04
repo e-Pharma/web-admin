@@ -7,7 +7,10 @@
                         <h4 class="card-title mt-0">Registered Clients</h4>
                         <p class="card-category">Verified</p>
                     </div>
-                    <div class="card-body">
+                    <div *ngIf="VerifiedClient.data.length == 0">
+                        <p>No clients to show</p>
+                    </div>
+                    <div class="card-body" *ngIf="VerifiedClient.data.length > 0">
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead class="text-primary">
@@ -60,7 +63,10 @@
                         <h4 class="card-title mt-0">Registered Clients</h4>
                         <p class="card-category"> Not Verified</p>
                     </div>
-                    <div class="card-body">
+                    <div *ngIf="NotVerifiedClient.data.length == 0">
+                        <p>No clients to show</p>
+                    </div>
+                    <div class="card-body" *ngIf="NotVerifiedClient.data.length > 0">
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead class="text-primary">
