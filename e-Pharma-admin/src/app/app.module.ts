@@ -39,9 +39,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { ViewClientOrderComponent } from './view-client-order/view-client-order.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminLoginLayoutComponent } from './layouts/admin-login-layout/admin-login-layout.component';
-
-
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 baseURL
 @NgModule({
@@ -53,6 +51,7 @@ baseURL
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+    Ng2SearchPipeModule,
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyB_INN__LZyi6tnHGA1240QKxXZh8zW_sk",
       libraries: ['geometry']

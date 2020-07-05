@@ -1,18 +1,18 @@
 <div class="main-content">
     <div>
-        <h3>Prescription(s)</h3>
-        <div *ngFor="let prescription of Order.prescription_url">
-            <div class="container">
-                <img class="img" src={{prescription}} />
+        <h3>Prescription</h3>
+        <div class="pres-container">
+            <img class="img" src={{Order.prescription_url}} />
+        </div>
+    </div>
+    <ng-container *ngIf="Order.non_prescription">
+        <div *ngIf="Order.non_prescription.length > 0">
+            <h3>Non Prescription Items</h3>
+            <div>
+                <ul *ngFor="let item of Order.non_prescription">
+                    {{item}}
+                </ul>
             </div>
         </div>
-    </div>
-    <div *ngIf=Order.non_prescription>
-        <h3>Non Prescription Items</h3>
-        <div>
-            <ul *ngFor="let item of Order.non_prescription">
-                {{item}}
-            </ul>
-        </div>
-    </div>
+    </ng-container>
 </div>

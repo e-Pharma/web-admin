@@ -10,6 +10,8 @@ export class ClientsComponent implements OnInit {
 
   VerifiedClient:any = [];
   NotVerifiedClient:any = [];
+  searchTextOne:string = '';
+  searchTextTwo:string = '';
 
   constructor(private clientService:ClientService) { 
     this.readVerifiedClient();

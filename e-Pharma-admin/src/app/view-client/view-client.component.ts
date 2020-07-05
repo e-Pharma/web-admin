@@ -13,6 +13,7 @@ export class ViewClientComponent implements OnInit {
   PendingOrders:any = [];
   RejectedOrders:any = [];
   CompletedOrders:any = [];
+  searchText:string = '';
 
   constructor(
     private ClientServeice:ClientService,
