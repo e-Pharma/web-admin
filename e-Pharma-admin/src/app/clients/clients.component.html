@@ -7,6 +7,9 @@
                         <h4 class="card-title mt-0">Registered Clients</h4>
                         <p class="card-category">Verified</p>
                     </div>
+                    <div class="input-group no-border">
+                        <input type="text" value="" class="form-control" placeholder="Search for Clients" [(ngModel)]="searchTextOne">
+                    </div>
                     <div *ngIf="VerifiedClient.data.length == 0">
                         <p>No clients to show</p>
                     </div>
@@ -31,7 +34,7 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let verifiedClient of VerifiedClient.data">
+                                    <tr *ngFor="let verifiedClient of VerifiedClient.data | filter:searchTextOne">
                                         <td>
                                             {{verifiedClient.nic}}
                                         </td>
@@ -63,6 +66,9 @@
                         <h4 class="card-title mt-0">Registered Clients</h4>
                         <p class="card-category"> Not Verified</p>
                     </div>
+                    <div class="input-group no-border">
+                        <input type="text" value="" class="form-control" placeholder="Search for Clients" [(ngModel)]="searchTextTwo">
+                    </div>
                     <div *ngIf="NotVerifiedClient.data.length == 0">
                         <p>No clients to show</p>
                     </div>
@@ -87,7 +93,7 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let notVerifiedClient of NotVerifiedClient.data">
+                                    <tr *ngFor="let notVerifiedClient of NotVerifiedClient.data | filter:searchTextTwo">
                                         <td>
                                             {{notVerifiedClient.first_name}}
                                         </td>

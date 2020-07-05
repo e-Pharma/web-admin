@@ -50,8 +50,8 @@
                                                 <p><strong>{{Client.data.registered_at}}</strong></p>
                                             </div>
                                         </div>
-                                        <div class="row" *ngIf="Client.data.relations.length > 0">
-                                            <div class="col-md-12">
+                                        <div class="row" *ngIf="Client.data.relations">
+                                            <div class="col-md-12" *ngIf="Client.data.relations.length > 0">
                                                 <label>Relations</label>
                                                 <mat-accordion>
                                                     <mat-expansion-panel *ngFor="let relation of Client.data.relations">
@@ -128,11 +128,14 @@
                                 <h4 class="card-title mt-0">{{Client.data.first_name}} {{Client.data.last_name}}</h4>
                                 <p class="card-category">Order History</p>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" *ngIf="Orders.data">
                                 <div *ngIf="Orders.data.length == 0">
                                     <P>No Orders have been placed yet</P>
                                 </div>
                                 <div class="table-responsive" *ngIf="Orders.data.length > 0">
+                                    <div class="input-group no-border">
+                                        <input type="text" value="" class="form-control" placeholder="Search for Orders" [(ngModel)]="searchText">
+                                    </div>
                                     <table class="table table-hover">
                                         <thead class="text-primary">
                                             <th>
@@ -152,7 +155,7 @@
                                             </th>
                                         </thead>
                                         <tbody>
-                                            <tr *ngFor="let order of PendingOrders">
+                                            <tr *ngFor="let order of PendingOrders | filter:searchText">
                                                 <td>
                                                     {{order.ordered_at}}
                                                 </td>
@@ -172,7 +175,7 @@
                                                     <button mat-raised-button class="btn btn-warning btn-block" [routerLink] = "['/client/viewClientOrder', order._id]">Order Details</button>
                                                 </td>
                                             </tr>
-                                            <tr *ngFor="let order of CompletedOrders">
+                                            <tr *ngFor="let order of CompletedOrders | filter:searchText">
                                                 <td>
                                                     {{order.ordered_at}}
                                                 </td>
@@ -192,7 +195,7 @@
                                                     <button mat-raised-button class="btn btn-warning btn-block" [routerLink] = "['/client/viewClientOrder', order._id]">Order Details</button>
                                                 </td>
                                             </tr>
-                                            <tr *ngFor="let order of RejectedOrders">
+                                            <tr *ngFor="let order of RejectedOrders | filter:searchText">
                                                 <td>
                                                     {{order.ordered_at}}
                                                 </td>
