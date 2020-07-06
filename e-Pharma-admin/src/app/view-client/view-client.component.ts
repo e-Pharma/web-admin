@@ -36,27 +36,31 @@ export class ViewClientComponent implements OnInit {
         this.Orders = data;
 
         for(let i=0;i<this.Orders.data.length;i++){
-          if(this.Orders.data[i].status=='is_reviewed'){
+          if(this.Orders.data[i].status=='pending'){
             this.Orders.data[i].status="Pharmacist's Review Required";
             this.PendingOrders.push(this.Orders.data[i]);
           }
-          else if(this.Orders.data[i].status=='is_paid'){
+          else if(this.Orders.data[i].status=='reviewed'){
             this.Orders.data[i].status="Waiting for client's confirmation";
             this.PendingOrders.push(this.Orders.data[i]);
           }
-          else if(this.Orders.data[i].status=='is_dispatched'){
+          else if(this.Orders.data[i].status=='paid'){
             this.Orders.data[i].status="Ready to dispatch";
             this.PendingOrders.push(this.Orders.data[i]);
           }
-          else if(this.Orders.data[i].status=='is_delivered'){
+          else if(this.Orders.data[i].status=='dispatched'){
             this.Orders.data[i].status="Order dispatched";
             this.PendingOrders.push(this.Orders.data[i]);
+          }
+          else if(this.Orders.data[i].status=='delivered'){
+            this.Orders.data[i].status='Successfully Completed';
+            this.CompletedOrders.push(this.Orders.data[i]);
           }
           else if(this.Orders.data[i].status=='completed'){
             this.Orders.data[i].status='Successfully Completed';
             this.CompletedOrders.push(this.Orders.data[i]);
           }
-          else if(this.Orders.data[i].status=='is_rejected'){
+          else if(this.Orders.data[i].status=='rejected'){
             this.Orders.data[i].status="Order Rejected";
             this.RejectedOrders.push(this.Orders.data[i]);
           }
