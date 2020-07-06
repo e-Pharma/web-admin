@@ -7,7 +7,7 @@ import { Subject, Observable } from "rxjs";
 import { AddmedicineComponent } from "app/addmedicine/addmedicine.component";
 import { OrderService } from "app/services/order.service";
 import { Order } from "app/shared/order";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { AgmCoreModule, MapsAPILoader } from "@agm/core";
 import { DomSanitizer } from "@angular/platform-browser";
 
@@ -23,7 +23,8 @@ export class OrderdetailsComponent implements OnInit {
     private medicineserachService: MedicineserachService,
     private orderService: OrderService,
     private route: ActivatedRoute,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private router: Router
   ) {}
   imageSource;
   addMed: boolean;
@@ -115,13 +116,14 @@ export class OrderdetailsComponent implements OnInit {
       "delivery_charges":delivery_charges,
       "full_amount":full_amount,
       "medicine_list":this.medList,
-      "status":"is_paid"
+      "status":"reviewed"
     }
 
     this.orderService.updateOrder(doc,this.id).subscribe(
       (res) => {
         if(res["status"]==202){
           window.alert("done")
+          this.router.navigate(['/dashboard'])
         }
       },
       (errmsg) => {

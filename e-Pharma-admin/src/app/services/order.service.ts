@@ -20,7 +20,7 @@ export class OrderService {
     console.log("here");
     // return ORDERS;
     return this.http
-      .get<any>(baseURL + "admin/orders?value=is_reviewed")
+      .get<any>(baseURL + "admin/orders?value=pending")   
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
