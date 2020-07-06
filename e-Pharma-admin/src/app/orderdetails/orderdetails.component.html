@@ -59,7 +59,7 @@
                 <div class="col-md-12">
                   <mat-form-field class="example-full-width">
                     <input
-                      value="{{ order.dilivery_address }}"
+                      value="{{ order.delivery_address }}"
                       matInput
                       placeholder="Address"
                       type="text"
@@ -121,13 +121,13 @@
                         Name
                       </th>
                       <th>
-                        Email
+                        Unit Price
                       </th>
                       <th>
-                        Address
+                        Quantity
                       </th>
                       <th>
-                        Order date
+                        Cost
                       </th>
                       <th>
                         
@@ -143,16 +143,16 @@
                           {{med.name}}
                         </td>
                         <td>
-                         
+                         45
                         </td>
                         <td>
-                          
+                          <input/>
                         </td>
                         <td class="text-primary">
                          
                         </td>
                         <td class="text-primary">
-                          <button mat-raised-button class="btn btn-success pull-center">Review Order</button>
+                          <button mat-raised-button class="btn btn-danger pull-center">Remove</button>
                         </td>
                       </tr>
                     </tbody>
@@ -199,7 +199,7 @@
                 type="submit"
                 class="btn btn-danger pull-right"
               >
-                Update Profile
+                Review Order
               </button>
               <div class="clearfix"></div>
             </form>

@@ -9,8 +9,8 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
  
 const routes: Routes =[
   {
-    path: '',
-    redirectTo: 'dashboard',
+    path: '',   
+    redirectTo: 'login',
     pathMatch: 'full',
   }, {
     path: '',

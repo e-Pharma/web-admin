@@ -1,17 +1,17 @@
 <div class="admin-login">
     <!-- Default form login -->
-    <form class="text-center border border-light p-5" action="#!">
+    <form class="text-center border border-light p-5" (submit)="login($event)">
 
-        <p class="h4 mb-4"><strong>Administrator Sign in</strong></p>
+        <p class="h4 mb-4"><strong>Administrator Sign In</strong></p>
 
         <!-- Email -->
-        <input type="username" id="defaultLoginFormUsername" class="form-control mb-4" placeholder="Username">
+        <input type="text" name="username" id="username" class="form-control mb-4" placeholder="Username">
 
         <!-- Password -->
-        <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
+        <input type="password"  id="password" class="form-control mb-4" placeholder="Password">
 
         <!-- Sign in button -->
-        <button class="btn btn-danger btn-block my-4" type="submit">Sign in</button>
+        <button class="btn btn-danger btn-block my-4" type="submit" value="Submit">Sign In</button>
 
     </form>
     <!-- Default form login -->
