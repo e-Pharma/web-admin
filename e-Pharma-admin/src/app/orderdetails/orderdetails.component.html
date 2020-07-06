@@ -127,14 +127,11 @@
                         Quantity
                       </th>
                       <th>
-                        Cost
-                      </th>
-                      <th>
                         
                       </th>
                     </thead>
     
-                    <tbody *ngFor="let med of medList">
+                    <tbody *ngFor="let med of medList" [attr._id]="med._id">
                       <tr>
                         <td>
                           {{med._id}}
@@ -142,24 +139,20 @@
                         <td>
                           {{med.name}}
                         </td>
-                        <td>
-                         45
+                        <td >
+                         {{med.unit_price}}
                         </td>
                         <td>
-                          <input/>
+                          <input id="quantity" (keyup)="addRow($event,med._id)"/>
                         </td>
                         <td class="text-primary">
-                         
-                        </td>
-                        <td class="text-primary">
-                          <button mat-raised-button class="btn btn-danger pull-center">Remove</button>
+                          <button (click)="deleteRow(med._id)" mat-raised-button class="btn btn-danger pull-center">Remove</button>
+                          <button (click)="addRow($event)" mat-raised-button class="btn btn-success pull-center">ADD</button>
                         </td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
-
-               
               </div>
 
               <!-- <div class="row">
@@ -198,6 +191,7 @@
                 mat-raised-button
                 type="submit"
                 class="btn btn-danger pull-right"
+                (click)="review()"
               >
                 Review Order
               </button>

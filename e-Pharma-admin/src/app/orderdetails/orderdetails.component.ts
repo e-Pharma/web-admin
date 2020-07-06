@@ -33,7 +33,7 @@ export class OrderdetailsComponent implements OnInit {
   currentMed: Med;
   order: Order;
   id: string;
-  medList: Med[] = new Array;
+  medList: Med[] = new Array();
   // route: ActivatedRoute
 
   @Output() public select: EventEmitter<{}> = new EventEmitter();
@@ -44,17 +44,41 @@ export class OrderdetailsComponent implements OnInit {
     console.log(this.id);
     this.orderService.getSpecificOrders(this.id).subscribe(
       (order) => {
-        (this.order = order)
-        (this.imageSource = this.sanitizer.bypassSecurityTrustResourceUrl(` ${order.prescription_url}`))
+        (this.order = order)(
+          (this.imageSource = this.sanitizer.bypassSecurityTrustResourceUrl(
+            ` ${order.prescription_url}`
+          ))
+        );
       },
       (errmsg) => (this.errMsg = <any>errmsg)
     );
   }
 
+  deleteRow(id) {
+    console.log(id);
+    for (let i = 0; i < this.medList.length; ++i) {
+      if (this.medList[i]["_id"] === id) {
+        this.medList.splice(i, 1);
+        break;
+      }
+    }
+  }
+
+  addRow(event, id) {
+    console.log("here");
+    var val = event.target.value;
+    console.log(val);
+    for (let i = 0; i < this.medList.length; ++i) {
+      if (this.medList[i]["_id"] === id) {
+        this.medList[i]["quantity"] = val;
+      }
+    }
+  }
+
   addMedicine() {
     this.addMed = true;
     this.medicineserachService.fetchMeds().subscribe(
-      (meds) => ((this.meds = meds["data"]), console.log(this.meds[0]["name"])),
+      (meds) => ((this.meds = meds["data"]), console.log(this.meds)),
       (errmsg) => (this.errMsg = <any>errmsg)
     );
     console.log(this.meds);
@@ -76,5 +100,35 @@ export class OrderdetailsComponent implements OnInit {
     console.log(med);
     this.medList.push(med);
     console.log(this.medList);
+  }
+
+  review() {
+    var full_amount: number = 0;
+    for (let i = 0; i < this.medList.length; ++i) {
+      full_amount =
+        full_amount +
+        this.medList[i]["quantity"] * this.medList[i]["unit_price"];
+    }
+    var delivery_charges: number = 450;
+    console.log(full_amount);
+    var doc = {
+      "delivery_charges":delivery_charges,
+      "full_amount":full_amount,
+      "medicine_list":this.medList,
+      "status":"is_paid"
+    }
+
+    this.orderService.updateOrder(doc,this.id).subscribe(
+      (res) => {
+        if(res["status"]==202){
+          window.alert("done")
+        }
+      },
+      (errmsg) => {
+        (this.errMsg = <any>errmsg) 
+        console.log(this.errMsg)
+        window.alert("error")
+      }
+    );
   }
 }
