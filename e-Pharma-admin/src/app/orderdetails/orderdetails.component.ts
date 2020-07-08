@@ -10,6 +10,7 @@ import { Order } from "app/shared/order";
 import { ActivatedRoute, Router } from "@angular/router";
 import { AgmCoreModule, MapsAPILoader } from "@agm/core";
 import { DomSanitizer } from "@angular/platform-browser";
+import { OcrService } from "app/services/ocr.service";
 
 // import {Platform} from '@ionic/angular';
 declare var google;
@@ -19,9 +20,11 @@ declare var google;
   styleUrls: ["./orderdetails.component.css"],
 })
 export class OrderdetailsComponent implements OnInit {
+  textSuggestions: boolean;
   constructor(
     private medicineserachService: MedicineserachService,
     private orderService: OrderService,
+    private ocrService: OcrService,
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer,
     private router: Router
@@ -36,6 +39,8 @@ export class OrderdetailsComponent implements OnInit {
   id: string;
   medList: Med[] = new Array();
   // route: ActivatedRoute
+  texts: string[] = new Array();
+  prescriptionURL:string;
 
   @Output() public select: EventEmitter<{}> = new EventEmitter();
 
@@ -45,17 +50,22 @@ export class OrderdetailsComponent implements OnInit {
     console.log(this.id);
     this.orderService.getSpecificOrders(this.id).subscribe(
       (order) => {
+        (this.prescriptionURL = order.prescription_url),
         (this.order = order)(
+          
           (this.imageSource = this.sanitizer.bypassSecurityTrustResourceUrl(
             ` ${order.prescription_url}`
           ))
         );
+        
       },
       (errmsg) => (this.errMsg = <any>errmsg)
     );
+    
   }
 
   deleteRow(id) {
+    console.log(this.prescriptionURL)
     console.log(id);
     for (let i = 0; i < this.medList.length; ++i) {
       if (this.medList[i]["_id"] === id) {
@@ -111,6 +121,7 @@ export class OrderdetailsComponent implements OnInit {
         this.medList[i]["quantity"] * this.medList[i]["unit_price"];
     }
     var delivery_charges: number = 450;
+    full_amount = full_amount+delivery_charges
     console.log(full_amount);
     var doc = {
       "delivery_charges":delivery_charges,
@@ -132,5 +143,37 @@ export class OrderdetailsComponent implements OnInit {
         window.alert("error")
       }
     );
+  }
+
+  ocr(){
+    // var doc = {
+    //   "Url":" "+this.prescriptionURL+" ",
+    // }
+    // console.log(this.prescriptionURL)
+    // this.ocrService.getUrl(doc).subscribe(
+    //   res => {
+    //     var headers = res.getAllResponseHeaders()
+    //     // var response = call.headers.get('Operation-Location')
+    //     console.log(headers)
+    //   },
+    //   errmsg => {
+    //     window.alert("OCR Model error" + errmsg)
+    //   }
+    // )
+
+
+    this.ocrService.getText(this.id).subscribe(
+      res => {
+        this.textSuggestions = true
+        console.log(res["status"])
+        for(let i=0;i<res["recognitionResult"]["lines"].length;++i){
+          this.texts.push(res["recognitionResult"]["lines"][i]["text"])
+        }
+        console.log(this.texts)
+      },
+      errmsg => {
+        window.alert("OCR Model error" + errmsg)
+      }
+    )
   }
 }
