@@ -112,7 +112,7 @@
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <table  class="table">
+                  <table class="table">
                     <thead class="text-primary">
                       <th>
                         ID
@@ -126,28 +126,41 @@
                       <th>
                         Quantity
                       </th>
-                      <th>
-                        
-                      </th>
+                      <th></th>
                     </thead>
-    
+
                     <tbody *ngFor="let med of medList" [attr._id]="med._id">
                       <tr>
                         <td>
-                          {{med._id}}
+                          {{ med._id }}
                         </td>
                         <td>
-                          {{med.name}}
-                        </td>
-                        <td >
-                         {{med.unit_price}}
+                          {{ med.name }}
                         </td>
                         <td>
-                          <input id="quantity" (keyup)="addRow($event,med._id)"/>
+                          {{ med.unit_price }}
+                        </td>
+                        <td>
+                          <input
+                            id="quantity"
+                            (keyup)="addRow($event, med._id)"
+                          />
                         </td>
                         <td class="text-primary">
-                          <button (click)="deleteRow(med._id)" mat-raised-button class="btn btn-danger pull-center">Remove</button>
-                          <button (click)="addRow($event)" mat-raised-button class="btn btn-success pull-center">ADD</button>
+                          <button
+                            (click)="deleteRow(med._id)"
+                            mat-raised-button
+                            class="btn btn-danger pull-center"
+                          >
+                            Remove
+                          </button>
+                          <!-- <button
+                            (click)="addRow($event)"
+                            mat-raised-button
+                            class="btn btn-success pull-center"
+                          >
+                            ADD
+                          </button> -->
                         </td>
                       </tr>
                     </tbody>
@@ -201,6 +214,9 @@
         </div>
       </div>
       <div class="col-md-4">
+        <a href="javascript:void(0)">
+          <img class="img" [src]="imageSource" />
+        </a>
         <!-- <div class="card card-profile">
           <div class="card-avatar">
             <a href="javascript:void(0)">
@@ -220,12 +236,22 @@
             >
           </div>
         </div> -->
-        <a href="javascript:void(0)">
-          <img class="img" [src]="imageSource"/>
-          
-        </a>
+        <br />
+        <button
+          mat-raised-button
+          type="submit"
+          class="btn btn-info pull-center"
+          (click)="ocr()"
+        >
+          Get Text Suggestions
+        </button>
+        <p  *ngIf="textSuggetions">Suggested Text</p>
+        <ul>
+          <li *ngFor="let text of texts">
+            {{ text }}
+          </li>
+        </ul>
       </div>
-      
     </div>
   </div>
 </div>

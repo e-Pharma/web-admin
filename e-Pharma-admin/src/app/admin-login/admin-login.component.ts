@@ -19,6 +19,14 @@ export class AdminLoginComponent implements OnInit {
     // const username = target.getElementById('username')
     var username = event.target.username.value
     var password = event.target.password.value
+    if(username==""){
+      window.alert("Username cannot be empty")
+      return
+    }
+    if(password==""){
+      window.alert("Password cannot be empty")
+      return
+    }
     // console.log(username)
     this.loginService.adminLogin(username, password).subscribe(
       // (res) => (
