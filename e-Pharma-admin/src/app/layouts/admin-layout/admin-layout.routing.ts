@@ -13,6 +13,8 @@ import { ClientsComponent } from "app/clients/clients.component";
 import { ViewClientComponent } from "app/view-client/view-client.component";
 import { ViewClientOrderComponent } from "app/view-client-order/view-client-order.component";
 import { OrderdetailsComponent } from "app/orderdetails/orderdetails.component";
+import { DeliveryPersonComponent } from "app/delivery-person/delivery-person.component";
+import { AddDeliveryPersonComponent } from "app/add-delivery-person/add-delivery-person.component";
 
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
@@ -28,4 +30,6 @@ export const AdminLayoutRoutes: Routes = [
   { path: "notifications", component: NotificationsComponent },
   { path: "upgrade", component: UpgradeComponent },
   { path: "orderdetail/:id", component: OrderdetailsComponent },
+  { path: "deliveryPersons", component: DeliveryPersonComponent },
+  { path: "deliveryPersons/addDeliveryPerson", component: AddDeliveryPersonComponent },
 ];
