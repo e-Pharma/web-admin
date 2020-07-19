@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from "@angular/core";
 import { Order } from "app/shared/order";
 import { OrderService } from "app/services/order.service";
+// import { url } from "inspector";
 
 @Component({
   selector: "app-orders",
@@ -12,6 +13,8 @@ export class OrdersComponent implements OnInit {
   errMsg: string;
   selected:string;
   show:boolean;
+  buttonStr:string;
+  urlStr:string;
 
   constructor(
     private orderService: OrderService,
@@ -30,6 +33,14 @@ export class OrdersComponent implements OnInit {
   changeView(selected:string){
     this.show = true;
     this.selected = selected;
+    if(selected=='pending'){
+      this.buttonStr='Review Order'
+      this.urlStr='/orderdetail'
+    }
+    else if(selected=='reviewed'){
+      this.buttonStr='View Order'
+      this.urlStr='/vieworder'
+    }
     this.orderService.getOrders(selected).subscribe(
       (orders) => (this.orders = orders),
       (errmsg) => (this.errMsg = <any>errmsg)
