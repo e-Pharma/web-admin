@@ -119,7 +119,7 @@
                       {{order.ordered_at}}
                     </td>
                     <td class="text-primary">
-                      <button mat-raised-button [routerLink] = "['/orderdetail', order._id]" class="btn btn-success pull-center">Review Order</button>
+                      <button mat-raised-button [routerLink] = "[urlStr, order._id]" class="btn btn-success pull-center">{{buttonStr}}</button>
                     </td>
                   </tr>
                 </tbody>

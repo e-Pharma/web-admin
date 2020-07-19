@@ -42,6 +42,7 @@ import { AdminLoginLayoutComponent } from './layouts/admin-login-layout/admin-lo
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DeliveryPersonComponent } from './delivery-person/delivery-person.component';
 import { AddDeliveryPersonComponent } from './add-delivery-person/add-delivery-person.component';
+import { ViewOrderComponent } from './view-order/view-order.component';
 
 baseURL
 @NgModule({
@@ -71,7 +72,7 @@ baseURL
   ],
 
 
-  declarations: [AppComponent, AdminLayoutComponent, OrdersComponent, OrderdetailsComponent, AddmedicineComponent, ListFilterPipe,ClientsComponent, ViewClientComponent, ViewClientOrderComponent, AdminLoginComponent, AdminLoginLayoutComponent, DeliveryPersonComponent, AddDeliveryPersonComponent],
+  declarations: [AppComponent, AdminLayoutComponent, OrdersComponent, OrderdetailsComponent, AddmedicineComponent, ListFilterPipe,ClientsComponent, ViewClientComponent, ViewClientOrderComponent, AdminLoginComponent, AdminLoginLayoutComponent, DeliveryPersonComponent, AddDeliveryPersonComponent, ViewOrderComponent],
 
   providers: [
     {provide: 'BaseURL',useValue:baseURL}
