@@ -14,7 +14,7 @@
                                       <mat-form-field class="example-full-width">
                                         <input matInput placeholder="Fist Name" formControlName="firstName" required>
                                       </mat-form-field>
-                                      <mat-error *ngIf="firstName.invalid && firstName.touched">
+                                      <mat-error *ngIf="addDeliveryPersonForm.controls.firstName.hasError('required') && (addDeliveryPersonForm.controls.firstName.dirty || addDeliveryPersonForm.controls.firstName.touched)">
                                             First name is required
                                       </mat-error>
                                     </div>
@@ -22,7 +22,7 @@
                                         <mat-form-field class="example-full-width">
                                           <input matInput placeholder="Last Name" formControlName="lastName" required>
                                         </mat-form-field>
-                                        <mat-error *ngIf="lastName.invalid && lastName.touched">
+                                        <mat-error *ngIf="addDeliveryPersonForm.controls.lastName.hasError('required') && (addDeliveryPersonForm.controls.lastName.dirty || addDeliveryPersonForm.controls.lastName.touched)">
                                               Last name is required
                                         </mat-error>
                                     </div>
@@ -32,10 +32,10 @@
                                       <mat-form-field class="example-full-width">
                                         <input matInput placeholder="Vehicle Number" formControlName="vehicleNumber" required>
                                       </mat-form-field>
-                                      <mat-error *ngIf="vehicleNumber.invalid && vehicleNumber.touched">
+                                      <mat-error *ngIf="addDeliveryPersonForm.controls.vehicleNumber.hasError('required') && (addDeliveryPersonForm.controls.vehicleNumber.dirty || addDeliveryPersonForm.controls.vehicleNumber.touched)">
                                             Vehicle number is required
                                       </mat-error>
-                                      <mat-error *ngIf="vehicleNumber.errors.pattern">
+                                      <mat-error *ngIf="addDeliveryPersonForm.controls.vehicleNumber.hasError('pattern') && (addDeliveryPersonForm.controls.vehicleNumber.dirty || addDeliveryPersonForm.controls.vehicleNumber.touched)">
                                             Vehicle number is of invalid type
                                       </mat-error>
                                     </div>
@@ -45,21 +45,35 @@
                                       <mat-form-field class="example-full-width">
                                         <input matInput placeholder="Username" formControlName="username" required>
                                       </mat-form-field>
-                                      <mat-error *ngIf="username.invalid && username.touched">
-                                            Username is required
+                                      <mat-error *ngIf="addDeliveryPersonForm.controls.username.hasError('required') && (addDeliveryPersonForm.controls.username.dirty || addDeliveryPersonForm.controls.username.touched)">
+                                          Username is required
                                       </mat-error>
+                                      <mat-error *ngIf="addDeliveryPersonForm.controls.username.hasError('email') && (addDeliveryPersonForm.controls.username.dirty || addDeliveryPersonForm.controls.username.touched)">
+                                          Username is invalid
+                                    </mat-error>
                                     </div>
                                 </div>
                                 <div class="row">    
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                       <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Password" formControlName="password" required>
+                                        <input matInput [type]="'password'" placeholder="Password" formControlName="password" required>
                                       </mat-form-field>
-                                      <mat-error *ngIf="password.invalid && password.touched">
-                                        Password is required
+                                      <mat-error *ngIf="addDeliveryPersonForm.controls.password.hasError('required') && (addDeliveryPersonForm.controls.password.dirty || addDeliveryPersonForm.controls.password.touched)">
+                                          Password is required
                                       </mat-error>
-                                      <mat-error *ngIf="password.errors?.minLength && password.touched">
+                                      <mat-error *ngIf="addDeliveryPersonForm.controls.password.hasError('minlength') && (addDeliveryPersonForm.controls.password.dirty || addDeliveryPersonForm.controls.password.touched)">
                                           There should be atleast 8 characters
+                                      </mat-error>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <mat-form-field class="example-full-width">
+                                        <input matInput [type]="'password'" placeholder="Re-type password" formControlName="confirmPassword" required>
+                                      </mat-form-field>
+                                      <mat-error *ngIf="addDeliveryPersonForm.controls.confirmPassword.hasError('required') && (addDeliveryPersonForm.controls.confirmPassword.dirty || addDeliveryPersonForm.controls.confirmPassword.touched)">
+                                          This is required
+                                      </mat-error>
+                                      <mat-error *ngIf="(addDeliveryPersonForm.controls.confirmPassword.value != addDeliveryPersonForm.controls.password.value) && (addDeliveryPersonForm.controls.confirmPassword.dirty || addDeliveryPersonForm.controls.confirmPassword.touched)">
+                                          Password does not match
                                       </mat-error>
                                     </div>
                                 </div>

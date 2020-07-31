@@ -17,9 +17,10 @@ export class AddDeliveryPersonComponent implements OnInit {
     this.addDeliveryPersonForm = this.formBuilder.group({
       firstName:['',[Validators.required]],
       lastName:['',[Validators.required]],
-      vehicleNumber:['',[Validators.required,Validators.pattern("^([A-Z])[-]([0-9])$")]],
-      username:['',Validators.required],
-      password:['',Validators.required, Validators.minLength(8)],
+      vehicleNumber:['',[Validators.required,Validators.pattern("^[A-Z]{3}-[0-9]{4}$")]],
+      username:['',[Validators.required,Validators.email]],
+      password:['',[Validators.required,Validators.minLength(8)]],
+      confirmPassword:['',Validators.required]
     });
 
     this.addDeliveryPersonForm.valueChanges.subscribe(console.log);
@@ -44,6 +45,10 @@ export class AddDeliveryPersonComponent implements OnInit {
 
   get password(){
     return this.addDeliveryPersonForm.get('password');
+  }
+
+  get confirmPassword(){
+    return this.addDeliveryPersonForm.get('confirmPassword');
   }
 
   onSubmit(){
