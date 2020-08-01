@@ -32,21 +32,21 @@
                                 </th>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr *ngFor="let deliveryPerson of deliveryPersons.data | filter:searchText">
                                     <td>
-                                        
+                                        {{deliveryPerson.vehicleNumber}}
                                     </td>
                                     <td>
-                                        
+                                        {{deliveryPerson.firstName}}
                                     </td>
                                     <td>
-                                        
+                                        {{deliveryPerson.lastName}}
                                     </td>
                                     <td>
-                                        
+                                        {{deliveryPerson.phone}}
                                     </td>
                                     <td>
-                                        
+                                        {{deliveryPerson.registered_at}}
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-danger px-3"><i class="material-icons">delete</i></button>

@@ -17,14 +17,15 @@ export class AddDeliveryPersonComponent implements OnInit {
     this.addDeliveryPersonForm = this.formBuilder.group({
       firstName:['',[Validators.required]],
       lastName:['',[Validators.required]],
+      contactNumber:['',[Validators.required,Validators.pattern("^[0-9]{10}$")]],
+      email:['',[Validators.required,Validators.email]],
       vehicleNumber:['',[Validators.required,Validators.pattern("^[A-Z]{3}-[0-9]{4}$")]],
-      username:['',[Validators.required,Validators.email]],
+      username:['',Validators.required],
       password:['',[Validators.required,Validators.minLength(8)]],
       confirmPassword:['',Validators.required]
     });
 
     this.addDeliveryPersonForm.valueChanges.subscribe(console.log);
-
   }
 
   get firstName(){
@@ -52,7 +53,7 @@ export class AddDeliveryPersonComponent implements OnInit {
   }
 
   onSubmit(){
-
+    
   }
 
 }
