@@ -30,15 +30,41 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                       <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Vehicle Number" formControlName="vehicleNumber" required>
+                                        <input matInput placeholder="Contact Number" formControlName="contactNumber" required>
                                       </mat-form-field>
-                                      <mat-error *ngIf="addDeliveryPersonForm.controls.vehicleNumber.hasError('required') && (addDeliveryPersonForm.controls.vehicleNumber.dirty || addDeliveryPersonForm.controls.vehicleNumber.touched)">
-                                            Vehicle number is required
+                                      <mat-error *ngIf="addDeliveryPersonForm.controls.contactNumber.hasError('required') && (addDeliveryPersonForm.controls.contactNumber.dirty || addDeliveryPersonForm.controls.contactNumber.touched)">
+                                            Contact number is required
                                       </mat-error>
-                                      <mat-error *ngIf="addDeliveryPersonForm.controls.vehicleNumber.hasError('pattern') && (addDeliveryPersonForm.controls.vehicleNumber.dirty || addDeliveryPersonForm.controls.vehicleNumber.touched)">
-                                            Vehicle number is of invalid type
+                                      <mat-error *ngIf="addDeliveryPersonForm.controls.contactNumber.hasError('pattern') && (addDeliveryPersonForm.controls.contactNumber.dirty || addDeliveryPersonForm.controls.contactNumber.touched)">
+                                            Contact number is invalid. Should contain 10 digts without any special characters.
                                       </mat-error>
                                     </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Email" formControlName="email" required>
+                                    </mat-form-field>
+                                    <mat-error *ngIf="addDeliveryPersonForm.controls.email.hasError('required') && (addDeliveryPersonForm.controls.email.dirty || addDeliveryPersonForm.controls.email.touched)">
+                                        Email address is required
+                                    </mat-error>
+                                    <mat-error *ngIf="addDeliveryPersonForm.controls.email.hasError('email') && (addDeliveryPersonForm.controls.email.dirty || addDeliveryPersonForm.controls.email.touched)">
+                                        Invalid email address
+                                  </mat-error>
+                                  </div>
+                              </div>
+                                <div class="row">
+                                  <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Vehicle Number" formControlName="vehicleNumber" required>
+                                    </mat-form-field>
+                                    <mat-error *ngIf="addDeliveryPersonForm.controls.vehicleNumber.hasError('required') && (addDeliveryPersonForm.controls.vehicleNumber.dirty || addDeliveryPersonForm.controls.vehicleNumber.touched)">
+                                          Vehicle number is required
+                                    </mat-error>
+                                    <mat-error *ngIf="addDeliveryPersonForm.controls.vehicleNumber.hasError('pattern') && (addDeliveryPersonForm.controls.vehicleNumber.dirty || addDeliveryPersonForm.controls.vehicleNumber.touched)">
+                                          Vehicle number is of invalid type
+                                    </mat-error>
+                                  </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
@@ -48,9 +74,6 @@
                                       <mat-error *ngIf="addDeliveryPersonForm.controls.username.hasError('required') && (addDeliveryPersonForm.controls.username.dirty || addDeliveryPersonForm.controls.username.touched)">
                                           Username is required
                                       </mat-error>
-                                      <mat-error *ngIf="addDeliveryPersonForm.controls.username.hasError('email') && (addDeliveryPersonForm.controls.username.dirty || addDeliveryPersonForm.controls.username.touched)">
-                                          Username is invalid
-                                    </mat-error>
                                     </div>
                                 </div>
                                 <div class="row">    
@@ -74,6 +97,7 @@
                                       </mat-error>
                                       <mat-error *ngIf="(addDeliveryPersonForm.controls.confirmPassword.value != addDeliveryPersonForm.controls.password.value) && (addDeliveryPersonForm.controls.confirmPassword.dirty || addDeliveryPersonForm.controls.confirmPassword.touched)">
                                           Password does not match
+                                          <!-- Maybe will have to create a custom validator for this because of the problem in the submit button visibility -->
                                       </mat-error>
                                     </div>
                                 </div>
