@@ -25,4 +25,15 @@ export class DeliveryPersonComponent implements OnInit {
     })
   }
 
+  onClickDelete(data){
+    if(confirm("You are going to delete this record...")){
+      this.deliveryPersonService.deleteDeliveryPerson(data._id,data).subscribe(
+        (res)=>{
+          location.reload();
+        }, (error)=>{
+          console.log(error);
+        }
+      );
+    }
+  }
 }
