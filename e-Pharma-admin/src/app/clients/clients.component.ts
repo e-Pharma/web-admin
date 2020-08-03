@@ -33,6 +33,6 @@ export class ClientsComponent implements OnInit {
       console.log(data);
       this.NotVerifiedClient = data;
     })
-  }
+  } 
   
 }

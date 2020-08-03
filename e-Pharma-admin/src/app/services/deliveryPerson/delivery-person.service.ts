@@ -21,8 +21,24 @@ export class DeliveryPersonService {
   }
 
   //add delivery person
-  addDeliveryPerson(){
-    
+  addDeliveryPerson(data){
+    console.log(data);
+    // return this.http.post(this.baseURI+'addDriver',data).pipe(
+    //   catchError(this.errorMgmt)
+    // )
+    return this.http.post(baseURL+'admin/addDriver',data).pipe(
+      catchError(this.errorMgmt)
+    )
+  }
+
+  //delete delivery person
+  deleteDeliveryPerson(id:string,data){
+    // return this.http.put(this.baseURI+'deleteDriver/'+id,data).pipe(
+    //   catchError(this.errorMgmt)
+    // )
+    return this.http.put(baseURL+'admin/deleteDriver/'+id,data).pipe(
+      catchError(this.errorMgmt)
+    )
   }
 
   //Error handling
@@ -34,7 +50,7 @@ export class DeliveryPersonService {
     }
     else{
       //Get server-side error
-      errorMessage ='Error Code: ${error.status}\nMessage:${error.message}';
+      errorMessage =`Error Code: ${error.status}\nMessage:${error.message}`;
       console.log(errorMessage);
       return throwError(errorMessage);
     }
