@@ -1,0 +1,19 @@
+<div class="main-content">
+    <form #location="ngForm" (ngSubmit)="onSubmit(location)">
+        <div class="row">
+            <div class="col-md-12">
+              <mat-form-field class="example-full-width">
+                <input matInput name="lat" ngModel placeholder="Latitude">
+              </mat-form-field>
+            </div>
+            <div class="col-md-12">
+                <mat-form-field class="example-full-width">
+                  <input matInput name="long" ngModel placeholder="Longtitude">
+                </mat-form-field>
+            </div>
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-danger btn-raised">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

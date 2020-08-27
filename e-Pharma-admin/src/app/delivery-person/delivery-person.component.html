@@ -54,6 +54,9 @@
                                     <td>
                                         <button type="button" class="btn btn-danger px-3" (click)="onClickDelete(deliveryPerson)"><i class="material-icons">delete</i></button>
                                     </td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger px-3" [routerLink] = "['/updateDeliveryPerson',deliveryPerson._id]"><i class="material-icons">update</i></button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

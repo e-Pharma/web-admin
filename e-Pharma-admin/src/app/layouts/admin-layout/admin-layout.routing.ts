@@ -16,6 +16,8 @@ import { OrderdetailsComponent } from "app/orderdetails/orderdetails.component";
 import { DeliveryPersonComponent } from "app/delivery-person/delivery-person.component";
 import { AddDeliveryPersonComponent } from "app/add-delivery-person/add-delivery-person.component";
 import { ViewOrderComponent } from "app/view-order/view-order.component";
+import { TrackerComponent } from "app/tracker/tracker.component";
+import { UpdateDeliveryPersonComponent } from "app/update-delivery-person/update-delivery-person.component";
 
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
@@ -34,4 +36,6 @@ export const AdminLayoutRoutes: Routes = [
   { path: "deliveryPersons", component: DeliveryPersonComponent },
   { path: "deliveryPersons/addDeliveryPerson", component: AddDeliveryPersonComponent },
   { path: "vieworder/:id", component: ViewOrderComponent },
+  { path: "tracker", component: TrackerComponent },
+  { path: "updateDeliveryPerson/:id", component: UpdateDeliveryPersonComponent}
 ];

@@ -41,6 +41,16 @@ export class DeliveryPersonService {
     )
   }
 
+  //update delivery person (temporary)
+  updateDeliveryPerson(id:string,data){
+    // return this.http.put(this.baseURI+'updateDriverLatLong/'+id,data).pipe(
+    //   catchError(this.errorMgmt)
+    // )
+    return this.http.put(baseURL+'admin/updateDriverLatLong/'+id,data).pipe(
+      catchError(this.errorMgmt)
+    )
+  }
+
   //Error handling
   errorMgmt(error:HttpErrorResponse){
     let errorMessage = '';
