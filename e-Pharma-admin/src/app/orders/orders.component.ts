@@ -41,6 +41,10 @@ export class OrdersComponent implements OnInit {
       this.buttonStr='View Order'
       this.urlStr='/vieworder'
     }
+    else if(selected=='paid'){
+      this.buttonStr = 'View Order'
+      this.urlStr = '/paidvieworder' 
+    }
     this.orderService.getOrders(selected).subscribe(
       (orders) => (this.orders = orders),
       (errmsg) => (this.errMsg = <any>errmsg)

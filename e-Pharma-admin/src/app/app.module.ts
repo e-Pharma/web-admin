@@ -46,6 +46,7 @@ import { ViewOrderComponent } from './view-order/view-order.component';
 import { TrackerComponent } from './tracker/tracker.component';
 import { UpdateDeliveryPersonComponent } from './update-delivery-person/update-delivery-person.component';
 import { DeliveryHistoryComponent } from './delivery-history/delivery-history.component';
+import { AssignDriverComponent } from './assign-driver/assign-driver.component';
 
 baseURL
 @NgModule({
@@ -75,8 +76,7 @@ baseURL
   ],
 
 
-  declarations: [AppComponent, AdminLayoutComponent, OrdersComponent, OrderdetailsComponent, AddmedicineComponent, ListFilterPipe,ClientsComponent, ViewClientComponent, ViewClientOrderComponent, AdminLoginComponent, AdminLoginLayoutComponent, DeliveryPersonComponent, AddDeliveryPersonComponent, ViewOrderComponent, TrackerComponent, UpdateDeliveryPersonComponent, DeliveryHistoryComponent],
-
+  declarations: [AppComponent, AdminLayoutComponent, OrdersComponent, OrderdetailsComponent, AddmedicineComponent, ListFilterPipe,ClientsComponent, ViewClientComponent, ViewClientOrderComponent, AdminLoginComponent, AdminLoginLayoutComponent, DeliveryPersonComponent, AddDeliveryPersonComponent, ViewOrderComponent, TrackerComponent, UpdateDeliveryPersonComponent, DeliveryHistoryComponent,AssignDriverComponent],
   providers: [
     {provide: 'BaseURL',useValue:baseURL}
   ],
