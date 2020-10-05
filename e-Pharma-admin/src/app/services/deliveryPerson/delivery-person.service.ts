@@ -9,7 +9,7 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class DeliveryPersonService {
 
-    //baseURI:string = 'http://localhost:3000/admin/';
+  //  baseURI:string = 'http://localhost:3000/admin/';
     headers = new HttpHeaders().set('Content-Type','application/json')
 
   constructor(private http: HttpClient) { }
@@ -47,6 +47,22 @@ export class DeliveryPersonService {
     //   catchError(this.errorMgmt)
     // )
     return this.http.put(baseURL+'admin/updateDriverLatLong/'+id,data).pipe(
+      catchError(this.errorMgmt)
+    )
+  }
+
+  //View order history
+  viewOrderHistory(id:string){
+    // return this.http.get(this.baseURI+'orderHistory/'+id).pipe(
+    //   map((res:Response)=>{
+    //     return res || {}
+    //   }),
+    //   catchError(this.errorMgmt)
+    // )
+    return this.http.get(baseURL+'admin/orderHistory'+id).pipe(
+      map((res:Response)=>{
+        return res || {}
+      }),
       catchError(this.errorMgmt)
     )
   }

@@ -1,0 +1,90 @@
+<div class="main-content">
+    <div>
+        <div class="col-md-12">
+            <div class="card card-plain">
+                <div class="card-header card-header-danger">
+                    <h4 class="card-title mt-0">Delivery History</h4>
+                </div>
+                <div class="input-group no-border">
+                    <input type="text" value="" class="form-control" placeholder="Search for Orders" [(ngModel)]="searchText">
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="text-primary">
+                                <th>
+                                    Completed Date
+                                </th>
+                                <th>
+                                    Patient Name
+                                </th>
+                                <th>
+                                    Delivery Address
+                                </th>
+                                <th>
+                                    Ptient Contact Number
+                                </th>
+                                <th>
+                                    Status
+                                </th>
+                            </thead>
+                                <tr *ngFor="let order of Pending | filter:searchText">
+                                    <td>
+                                        {{order.completed_on}}
+                                    </td>
+                                    <td>
+                                        {{order.name}}
+                                    </td>
+                                    <td>
+                                        {{order.delivery_address}}
+                                    </td>
+                                    <td>
+                                        {{order.contact}}
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-danger">{{order.status}}</span>
+                                    </td>
+                                </tr>
+                                <tr *ngFor="let order of Dispatched | filter:searchText">
+                                    <td>
+                                        {{order.completed_on}}
+                                    </td>
+                                    <td>
+                                        {{order.name}}
+                                    </td>
+                                    <td>
+                                        {{order.delivery_address}}
+                                    </td>
+                                    <td>
+                                        {{order.contact}}
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-warning">{{order.status}}</span>
+                                    </td>
+                                </tr>
+                                <tr *ngFor="let order of Delivered | filter:searchText">
+                                    <td>
+                                        {{order.completed_on}}
+                                    </td>
+                                    <td>
+                                        {{order.name}}
+                                    </td>
+                                    <td>
+                                        {{order.delivery_address}}
+                                    </td>
+                                    <td>
+                                        {{order.contact}}
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-success">{{order.status}}</span>
+                                    </td>
+                                </tr>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
