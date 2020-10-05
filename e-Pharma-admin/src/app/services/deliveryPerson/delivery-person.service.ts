@@ -59,7 +59,7 @@ export class DeliveryPersonService {
     //   }),
     //   catchError(this.errorMgmt)
     // )
-    return this.http.get(baseURL+'admin/orderHistory'+id).pipe(
+    return this.http.get(baseURL+'admin/orderHistory/'+id).pipe(
       map((res:Response)=>{
         return res || {}
       }),
