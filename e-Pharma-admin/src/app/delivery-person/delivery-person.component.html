@@ -49,7 +49,7 @@
                                         {{deliveryPerson.registered_at}}
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-success px-3"><i class="material-icons">local_shipping</i></button>
+                                        <button type="button" class="btn btn-success px-3" [routerLink] = "['/deliveryHistory',deliveryPerson._id]"><i class="material-icons">local_shipping</i></button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-danger px-3" (click)="onClickDelete(deliveryPerson)"><i class="material-icons">delete</i></button>
