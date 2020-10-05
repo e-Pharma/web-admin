@@ -103,7 +103,7 @@ export class OrderdetailsComponent implements OnInit {
       gpsPharmacy
     );
     console.log(distance);
-  }
+  } 
 
   public onSelect(med: Med): void {
     this.currentMed = med;
@@ -111,7 +111,7 @@ export class OrderdetailsComponent implements OnInit {
     console.log(med);
     this.medList.push(med);
     console.log(this.medList);
-  }
+  } 
 
   review() {
     var full_amount: number = 0;
