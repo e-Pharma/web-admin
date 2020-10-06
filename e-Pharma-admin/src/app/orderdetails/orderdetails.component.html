@@ -98,11 +98,11 @@
 
                 <div class="col-md-4" *ngIf="addMed">
                   <app-addmedicine
-                    [(searchModel)]="searchModel"
+                    [(searchModel)]="searchModell"
                   ></app-addmedicine>
 
                   <mat-list
-                    *ngFor="let medicine of meds | listFilter: searchModel"
+                    *ngFor="let medicine of meds | listFilter: searchModell"
                   >
                     <mat-list-item>
                       <a (click)="onSelect(medicine)"> {{ medicine?.name }} </a>

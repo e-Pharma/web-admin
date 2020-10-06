@@ -77,6 +77,7 @@ baseURL
 
 
   declarations: [AppComponent, AdminLayoutComponent, OrdersComponent, OrderdetailsComponent, AddmedicineComponent, ListFilterPipe,ClientsComponent, ViewClientComponent, ViewClientOrderComponent, AdminLoginComponent, AdminLoginLayoutComponent, DeliveryPersonComponent, AddDeliveryPersonComponent, ViewOrderComponent, TrackerComponent, UpdateDeliveryPersonComponent, DeliveryHistoryComponent,AssignDriverComponent],
+
   providers: [
     {provide: 'BaseURL',useValue:baseURL}
   ],
