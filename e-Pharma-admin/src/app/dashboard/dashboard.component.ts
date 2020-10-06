@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+import { DashboardService } from '../services/dashboard/dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,8 +8,18 @@ import * as Chartist from 'chartist';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  totalOrders:any = 0;
+  completedOrders:any = 0;
+  rejectedOrdes:any = 0;
+  totalClients:any = 0;
 
-  constructor() { }
+  constructor(private DashboardService:DashboardService) { 
+    this.readTotalOrders();
+    this.readCompletedOrders();
+    this.readRejectedOrders();
+    this.readTotalClients();
+  }
+
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -145,6 +156,35 @@ export class DashboardComponent implements OnInit {
 
       //start animation for the Emails Subscription Chart
       this.startAnimationForBarChart(websiteViewsChart);
+  }
+
+  //#########################################################  EPHARMA  ##################################################################
+  readTotalOrders(){
+    this.DashboardService.getTotalOrdersCount().subscribe(data=>{
+      console.log(data);
+      this.totalOrders = data;
+    })
+  }
+
+  readCompletedOrders(){
+    this.DashboardService.getCompletedOrdersCount().subscribe(data=>{
+      console.log(data);
+      this.completedOrders = data;
+    })
+  }
+
+  readRejectedOrders(){
+    this.DashboardService.getRejectedOrdersCount().subscribe(data=>{
+      console.log(data);
+      this.rejectedOrdes = data;
+    })
+  }
+
+  readTotalClients(){
+    this.DashboardService.getTotalClientsCount().subscribe(data=>{
+      console.log(data);
+      this.totalClients = data;
+    })
   }
 
 }

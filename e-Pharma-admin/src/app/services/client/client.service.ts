@@ -10,7 +10,7 @@ import { catchError, map } from 'rxjs/operators';
 export class ClientService {
 
   //baseURI:string = 'http://localhost:3000/admin/';
-  headers = new HttpHeaders().set('Content-Type','application/json')
+  headers = new HttpHeaders().set('Content-Type','application/json');
 
   constructor(private http: HttpClient) { }
 
