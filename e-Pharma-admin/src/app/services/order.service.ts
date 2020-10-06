@@ -46,4 +46,16 @@ export class OrderService {
       .post<any>(baseURL + 'admin/updateOrder/'+id, doc, httpOptions)
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
+  updateOrderWithDriver(doc: any, id:string): Observable<any> {
+    console.log(doc);  
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    return this.http
+      .post<any>(baseURL + 'admin/updateOrderWithDriver/'+id, doc, httpOptions)
+      .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
+  
 }

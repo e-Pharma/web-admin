@@ -96,13 +96,13 @@
                   </button>
                 </div>
 
-                <div class="col-md-4" *ngIf="addMed">
+                <div class="col-md-4" *ngIf="addMed"> 
                   <app-addmedicine
-                    [(searchModel)]="searchModell"
+                    [(searchModel)]="searchModel"
                   ></app-addmedicine>
 
                   <mat-list
-                    *ngFor="let medicine of meds | listFilter: searchModell"
+                    *ngFor="let medicine of meds | listFilter: searchModel"
                   >
                     <mat-list-item>
                       <a (click)="onSelect(medicine)"> {{ medicine?.name }} </a>
@@ -124,7 +124,7 @@
                         Unit Price
                       </th>
                       <th>
-                        Quantity
+                        Quantity 
                       </th>
                       <th></th>
                     </thead>

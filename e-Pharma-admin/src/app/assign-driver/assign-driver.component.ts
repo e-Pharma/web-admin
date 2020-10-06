@@ -18,10 +18,10 @@ import { AddmedicineComponent } from "app/addmedicine/addmedicine.component";
 })
 export class AssignDriverComponent implements OnInit {
   deliveryPersons: any = [];
-  searchText: string = "";
-  deliveryPerson: DeliveryPerson;
+  searchText: string = "sasa";
+  deliveryPersonId:string = "hellowwww";
   imageSource;
-  addMed: boolean;
+  addDL: boolean;
   @Input() public deliveryPersonsList: Med[];
   errMsg: string;
   filteredMeds: Observable<string[]>;
@@ -44,10 +44,10 @@ export class AssignDriverComponent implements OnInit {
   ) {
     
    }
-
+ 
   ngOnInit(): void {
-    this.getDeliveryPersons();
-    this.addMed = false;
+    // this.getDeliveryPersons();
+    this.addDL = false;
     this.id = this.route.snapshot.paramMap.get("id");
     console.log(this.id);
     this.orderService.getSpecificOrders(this.id).subscribe(
@@ -67,21 +67,54 @@ export class AssignDriverComponent implements OnInit {
     
   }
 
+  review(){
+    console.log(this.deliveryPersonId)
+    console.log(this.id)
+    var doc = {
+      "driver":this.deliveryPersonId,
+      "status":"driverAssigned"
+    }
+    this.orderService.updateOrderWithDriver(doc,this.id).subscribe(
+      (res) => {
+        if(res["status"]==202){
+          window.alert("done")
+          this.router.navigate(['/dashboard'])
+        }
+      },
+      (errmsg) => {
+        (this.errMsg = <any>errmsg) 
+        console.log(this.errMsg)
+        window.alert("error")
+      }
+    );
+  }
+
   getDeliveryPersons(){
-    this.deliveryPersonService.getDeliveryPersons().subscribe((data)=>{
+    this.addDL = true;
+    this.deliveryPersonService.getDeliveryPersons().subscribe(
+      (data)=>{
       console.log(data);
       this.deliveryPersonsList = data["data"];
       console.log(this.deliveryPersonsList);
     })
   }
 
-  public onSelect(deliveryPerson: DeliveryPerson): void {
-    this.deliveryPerson = deliveryPerson;
-    this.select.emit(deliveryPerson);
-    console.log(deliveryPerson);
-    // this.medList.push(med);
-    console.log(this.dlList);
-  }
+  // addMedicine() {
+  //   this.addMed = true;
+  //   this.medicineserachService.fetchMeds().subscribe(
+  //     (meds) => ((this.meds = meds["data"]), console.log(this.meds)),
+  //     (errmsg) => (this.errMsg = <any>errmsg)
+  //   );
+  //   console.log(this.meds);
+  // }
+
+  // public onSelect(deliveryPerson: DeliveryPerson): void {
+  //   this.deliveryPerson = deliveryPerson;
+  //   this.select.emit(deliveryPerson);
+  //   console.log(deliveryPerson);
+  //   // this.medList.push(med);
+  //   console.log(this.dlList);
+  // }
 
 
 }
