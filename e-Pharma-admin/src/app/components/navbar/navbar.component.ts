@@ -122,4 +122,11 @@ export class NavbarComponent implements OnInit {
       }
       return 'Dashboard';
     }
+
+
+    logout(){
+        console.log("here")
+        this.router.navigate(['/login'])
+    }
 }
+   

@@ -11,10 +11,15 @@ export class AdminLoginComponent implements OnInit {
   constructor(private loginService: AdminLoginService, private router: Router) {}
   statuscode: Number;
   errMsg: string;
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.active=false;
+  }
+  active:boolean;
+
 
   login(event) {
     event.preventDefault();
+    this.active = true;
     // var target = event.target
     // const username = target.getElementById('username')
     var username = event.target.username.value
@@ -41,6 +46,7 @@ export class AdminLoginComponent implements OnInit {
         if(res["status"]==200){
           console.log("success")
           this.router.navigate(['/dashboard'])
+          this.active=false
         }
         // else if(res["status"]==401){
 
@@ -49,7 +55,8 @@ export class AdminLoginComponent implements OnInit {
         // }
       },
       errmsg => {
-        window.alert("Invalid Credentials")
+        window.alert("Invalid Credentials"),
+        this.active=false
       }
     );
   } 
