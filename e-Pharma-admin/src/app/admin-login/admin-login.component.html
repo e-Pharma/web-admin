@@ -9,10 +9,17 @@
 
         <!-- Password -->
         <input type="password"  id="password" class="form-control mb-4" placeholder="Password">
-
+        <br>
+        <div class="container" *ngIf="active">
+            <mat-spinner [diameter]="50"></mat-spinner>
+          </div>
+<br><br>
         <!-- Sign in button -->
         <button class="btn btn-danger btn-block my-4" type="submit" value="Submit">Sign In</button>
 
     </form>
     <!-- Default form login -->
-</div>
+    
+    
+  
+</div>  
