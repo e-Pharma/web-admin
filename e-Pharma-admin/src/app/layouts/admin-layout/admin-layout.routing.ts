@@ -22,6 +22,7 @@ import { DeliveryHistoryComponent } from "app/delivery-history/delivery-history.
 import { AssignDriverComponent } from "app/assign-driver/assign-driver.component";
 import { DispatchedOrderComponent } from "app/dispatched-order/dispatched-order.component";
 import { DeliveredOrderComponent } from "app/delivered-order/delivered-order.component";
+import { AccInfoComponent } from "app/acc-info/acc-info.component";
 
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
@@ -46,5 +47,6 @@ export const AdminLayoutRoutes: Routes = [
   { path: "paidvieworder/:id", component: AssignDriverComponent },
   { path: "dispatchorder/:id", component: DispatchedOrderComponent },
   { path: "deliveredorder/:id", component: DeliveredOrderComponent },
+  { path: "acc-info", component: AccInfoComponent },
   
 ];

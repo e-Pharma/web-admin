@@ -51,6 +51,7 @@ import { DeliveredOrderComponent } from "./delivered-order/delivered-order.compo
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatIconModule } from "@angular/material/icon";
 import {MatMenuModule} from '@angular/material/menu';
+import { AccInfoComponent } from './acc-info/acc-info.component';
 
 
 baseURL;
@@ -103,6 +104,7 @@ baseURL;
     AssignDriverComponent,
     DispatchedOrderComponent,
     DeliveredOrderComponent,
+    AccInfoComponent,
   ],
 
   providers: [{ provide: "BaseURL", useValue: baseURL }],

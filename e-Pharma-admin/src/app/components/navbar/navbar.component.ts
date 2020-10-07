@@ -125,8 +125,11 @@ export class NavbarComponent implements OnInit {
 
 
     logout(){
-        console.log("here")
         this.router.navigate(['/login'])
+    }
+
+    info(){
+        this.router.navigate(['/acc-info'])
     }
 }
    
