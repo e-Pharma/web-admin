@@ -24,7 +24,7 @@ export class AssignDriverComponent implements OnInit {
   addDL: boolean;
   @Input() public deliveryPersonsList: Med[];
   errMsg: string;
-  filteredMeds: Observable<string[]>;
+  filteredMeds: Observable<string[]>;       
   currentMed: Med;
   order: Order;
   id: string;
