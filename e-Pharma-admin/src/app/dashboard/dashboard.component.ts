@@ -10,7 +10,8 @@ import { DashboardService } from '../services/dashboard/dashboard.service';
 export class DashboardComponent implements OnInit {
   totalOrders:any = 0;
   completedOrders:any = 0;
-  rejectedOrdes:any = 0;
+  rejectedOrders:any = 0;
+  pendingOrders:any = 0;
   totalClients:any = 0;
 
   constructor(private DashboardService:DashboardService) { 
@@ -18,6 +19,7 @@ export class DashboardComponent implements OnInit {
     this.readCompletedOrders();
     this.readRejectedOrders();
     this.readTotalClients();
+    this.pendingOrders = this.totalOrders - this.completedOrders - this.rejectedOrders;
   }
 
   startAnimationForLineChart(chart){
@@ -76,11 +78,12 @@ export class DashboardComponent implements OnInit {
 
       seq2 = 0;
   };
+
   ngOnInit() {
-      /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
+      /* ----------==========     Daily Orders Chart initialization For Documentation    ==========---------- */
 
       const dataDailySalesChart: any = {
-          labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+          labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
           series: [
               [12, 17, 7, 17, 23, 18, 38]
           ]
@@ -125,34 +128,33 @@ export class DashboardComponent implements OnInit {
 
 
 
-      /* ----------==========     Emails Subscription Chart initialization    ==========---------- */
-
+      /* ----------====================    Performance Chart    ====================---------- */
       var datawebsiteViewsChart = {
-        labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
-        series: [
-          [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
-
-        ]
+        labels: ['Completed', 'Rejected', 'Pending'],
+        series: [2, 7, 20]
       };
       var optionswebsiteViewsChart = {
-          axisX: {
-              showGrid: false
-          },
-          low: 0,
-          high: 1000,
-          chartPadding: { top: 0, right: 5, bottom: 0, left: 0}
+        labelInterpolationFnc: function(value) {
+          return value[0]
+        }
       };
+
       var responsiveOptions: any[] = [
-        ['screen and (max-width: 640px)', {
-          seriesBarDistance: 5,
-          axisX: {
-            labelInterpolationFnc: function (value) {
-              return value[0];
-            }
-          }
-        }]
+        ['screen and (min-width: 640px)', {
+    chartPadding: 30,
+    labelOffset: 100,
+    labelDirection: 'explode',
+    labelInterpolationFnc: function(value) {
+      return value;
+    }
+  }],
+  ['screen and (min-width: 1024px)', {
+    labelOffset: 35,
+    chartPadding: 18
+  }]
       ];
-      var websiteViewsChart = new Chartist.Bar('#websiteViewsChart', datawebsiteViewsChart, optionswebsiteViewsChart, responsiveOptions);
+
+      var websiteViewsChart = new Chartist.Pie('#websiteViewsChart', datawebsiteViewsChart, optionswebsiteViewsChart, responsiveOptions);
 
       //start animation for the Emails Subscription Chart
       this.startAnimationForBarChart(websiteViewsChart);
@@ -176,7 +178,7 @@ export class DashboardComponent implements OnInit {
   readRejectedOrders(){
     this.DashboardService.getRejectedOrdersCount().subscribe(data=>{
       console.log(data);
-      this.rejectedOrdes = data;
+      this.rejectedOrders = data;
     })
   }
 

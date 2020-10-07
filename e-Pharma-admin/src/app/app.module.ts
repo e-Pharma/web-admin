@@ -52,7 +52,8 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatIconModule } from "@angular/material/icon";
 import {MatMenuModule} from '@angular/material/menu';
 import { AccInfoComponent } from './acc-info/acc-info.component';
-
+import { FeedbackComponent } from './feedback/feedback.component';
+import { AddMedicineComponent } from './add-medicine/add-medicine.component';
 
 baseURL;
 @NgModule({
@@ -105,6 +106,8 @@ baseURL;
     DispatchedOrderComponent,
     DeliveredOrderComponent,
     AccInfoComponent,
+    FeedbackComponent,
+    AddMedicineComponent
   ],
 
   providers: [{ provide: "BaseURL", useValue: baseURL }],

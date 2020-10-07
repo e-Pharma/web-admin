@@ -10,8 +10,8 @@ import * as io from 'socket.io-client';
 export class TrackerComponent implements OnInit {
   deliveryPersons:any = [];
   //Location of the Client (Pharmacy)
-  lat = 6.931970;
-  lng = 79.857750;
+  lat = 6.902097;
+  lng = 79.861029;
   pharmacyIcon = {
       url: 'https://cdn2.iconfinder.com/data/icons/map-locations-colored-outlined-pixel-perfect/64/pin-map-location-03-512.png',
       scaledSize: {

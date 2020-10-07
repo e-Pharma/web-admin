@@ -172,7 +172,7 @@
                                                     {{order.completed_on}}
                                                 </td>
                                                 <td>
-                                                    <button mat-raised-button class="btn btn-warning btn-block" [routerLink] = "['/client/viewClientOrder', order._id]">Order Details</button>
+                                                    <button type="button" class="btn btn-success px-3" [routerLink] = "['/client/viewClientOrder', order._id]"><i class="material-icons">visibility</i></button>
                                                 </td>
                                             </tr>
                                             <tr *ngFor="let order of CompletedOrders | filter:searchText">
@@ -192,8 +192,11 @@
                                                     {{order.completed_on}}
                                                 </td>
                                                 <td>
-                                                    <button mat-raised-button class="btn btn-warning btn-block" [routerLink] = "['/client/viewClientOrder', order._id]">Order Details</button>
+                                                    <button type="button" class="btn btn-success px-3" [routerLink] = "['/client/viewClientOrder', order._id]"><i class="material-icons">visibility</i></button>
                                                 </td>
+                                                <!--<td>
+                                                    <button type="button" class="btn btn-warning px-3" [routerLink] = "['/client/orderFeedback', order._id]"><i class="material-icons">feedback</i></button>
+                                                </td>-->
                                             </tr>
                                             <tr *ngFor="let order of RejectedOrders | filter:searchText">
                                                 <td>
@@ -212,7 +215,7 @@
                                                     {{order.completed_on}}
                                                 </td>
                                                 <td>
-                                                    <button mat-raised-button class="btn btn-warning btn-block" [routerLink] = "['/client/viewClientOrder', order._id]">Order Details</button>
+                                                    <button type="button" class="btn btn-success px-3" [routerLink] = "['/client/viewClientOrder', order._id]"><i class="material-icons">visibility</i></button>
                                                 </td>
                                             </tr>
                                         </tbody>

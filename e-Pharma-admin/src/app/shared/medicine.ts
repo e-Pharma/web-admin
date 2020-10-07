@@ -1,5 +1,7 @@
 export class Medicine{
-    name:string;
     id:string;
+    name:string;
     unitPrice: number;
+    quantity: string;
+    is_available: boolean;
 }
