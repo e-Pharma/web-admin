@@ -1,0 +1,166 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Order Details</h4>
+            <p class="card-category">Review the Order</p>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="row">
+                <div class="col-md-8">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      value="{{ order._id }}"
+                      placeholder="Order Id"
+                      disabled
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      value="{{ order.ordered_at }}"
+                      placeholder="Order Date"
+                      disabled
+                    />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      value="{{ order.name }}"
+                      placeholder="Client's Name"
+                      type="text"
+                      disabled
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      value="{{ order.email }}"
+                      placeholder="Email"
+                      type="text"
+                      disabled
+                    />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      value="{{ order.delivery_address }}"
+                      matInput
+                      placeholder="Address"
+                      type="text"
+                    />
+                  </mat-form-field>
+                </div>
+              </div>
+              
+
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      value="{{ order.driver }}"
+                      placeholder="Delivery person"
+                      type="text"
+                      disabled
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input
+                      matInput
+                      value="{{ order.full_amount }}"
+                      placeholder="Full amount"
+                      type="text"
+                      disabled
+                    />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <table class="table">
+                    <thead class="text-primary">
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Unit Price</th>
+                      <th>Quantity</th>
+                      <th></th>
+                    </thead>
+
+                    <tbody *ngFor="let med of order.medicine_list">
+                      <tr>
+                        <td>
+                          {{ med._id }}
+                        </td>
+                        <td>
+                          {{ med.name }}
+                        </td>
+                        <td>
+                          {{ med.unit_price }}
+                        </td>
+                        <td>
+                          {{ med.quantity }}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              
+            </form>
+          </div>
+          
+        </div>
+
+
+        <div class="col-md-4">
+          <button
+            mat-raised-button
+            (click)="getDriverLocation()"
+            class="btn btn-outline-secondary pull-left"
+          >
+            Relocate the Driver
+          </button>
+        </div>
+      </div>
+     
+      <div class="col-md-4">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]=13>
+          <agm-marker
+              [latitude]="lat" 
+              [longitude]="lng"
+              [iconUrl] = "pharmacyIcon"
+              title="Pharmacy"
+          ></agm-marker>
+          <agm-marker
+              [latitude]="delivery_lat" 
+              [longitude]="delivery_long"
+              [iconUrl] = "driverIcon"
+              [title] = "delivery_name"
+          ></agm-marker>
+      </agm-map>
+    </div>  
+    </div>
+  </div>
+  
+</div>
+
+
+

@@ -20,6 +20,7 @@ import { TrackerComponent } from "app/tracker/tracker.component";
 import { UpdateDeliveryPersonComponent } from "app/update-delivery-person/update-delivery-person.component";
 import { DeliveryHistoryComponent } from "app/delivery-history/delivery-history.component";
 import { AssignDriverComponent } from "app/assign-driver/assign-driver.component";
+import { DispatchedOrderComponent } from "app/dispatched-order/dispatched-order.component";
 
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
@@ -42,4 +43,5 @@ export const AdminLayoutRoutes: Routes = [
   { path: "updateDeliveryPerson/:id", component: UpdateDeliveryPersonComponent},
   { path: "deliveryHistory/:id", component:DeliveryHistoryComponent},
   { path: "paidvieworder/:id", component: AssignDriverComponent },
+  { path: "dispatchorder/:id", component: DispatchedOrderComponent },
 ];
