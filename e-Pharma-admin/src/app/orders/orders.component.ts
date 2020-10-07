@@ -15,6 +15,7 @@ export class OrdersComponent implements OnInit {
   show:boolean;
   buttonStr:string;
   urlStr:string;
+  searchText:string = '';
 
   constructor(
     private orderService: OrderService,
@@ -48,6 +49,13 @@ export class OrdersComponent implements OnInit {
     else if(selected=='dispatched'){
       this.buttonStr = 'View Order'
       this.urlStr = '/dispatchorder'
+    }
+    else if(selected=='completed'){
+      this.buttonStr = 'View Order'
+      this.urlStr = '/deliveredorder'
+    }
+    else if(selected=='rejected'){
+      this.buttonStr = ''
     }
     this.orderService.getOrders(selected).subscribe(
       (orders) => (this.orders = orders),
