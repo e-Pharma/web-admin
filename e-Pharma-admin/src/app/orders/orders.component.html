@@ -23,7 +23,7 @@
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6">
         <div (click)="changeView('reviewed')" class="card card-stats">
-          <div class="card-header card-header-success card-header-icon">
+          <div class="card-header card-header-info card-header-icon">
             <div class="card-icon">
               <i class="material-icons">store</i>
             </div>
@@ -41,7 +41,7 @@
         <div (click)="changeView('paid')" class="card card-stats">
           <div class="card-header card-header-danger card-header-icon">
             <div class="card-icon">
-              <i class="material-icons">info_outline</i>
+              <i class="material-icons">attach_money</i>
             </div>
             <p class="card-category">Need to ready</p>
             <h3 class="card-title"><small>Paid Orders</small></h3>
@@ -57,7 +57,7 @@
         <div (click)="changeView('dispatched')" class="card card-stats">
           <div class="card-header card-header-info card-header-icon">
             <div class="card-icon">
-              <i class="fa fa-twitter"></i>
+              <i class="material-icons">bike_scooter</i>
             </div>
             <p class="card-category">On the way</p>
             <h3 class="card-title"><small>Dispatched Orders</small></h3>
@@ -70,13 +70,54 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        
+      </div> 
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div (click)="changeView('completed')" class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">store</i>
+            </div>
+            <p class="card-category">Delivery Done</p>
+            <h3 class="card-title"><small>Delivered Orders</small></h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">date_range</i>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div (click)="changeView('rejected')" class="card card-stats">
+          <div class="card-header card-header-danger card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">info_outline</i>
+            </div>
+            <p class="card-category"></p>
+            <h3 class="card-title"><small>Rejected Orders</small></h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">local_offer</i>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
     <div class="row" *ngIf="show">
       <div class="col-md-12">
-        <div class="card">
+        <div class="card card-plain">
           <div class="card-header card-header-danger">
-            <h4 class="card-title">New Orders</h4>
-            <p class="card-category">Yet to review</p>
+            <h4 class="card-title mt-0">Orders List</h4>
+            <p class="card-category"></p>
           </div>
+          <div class="input-group no-border">
+            <input type="text" value="" class="form-control" placeholder="Search for Orders" [(ngModel)]="searchText">
+        </div>
           <div class="card-body">
             <div class="table-responsive">
               <table *ngIf="orders" class="table">
@@ -101,7 +142,7 @@
                   </th>
                 </thead>
 
-                <tbody *ngFor="let order of orders.data">
+                <tbody *ngFor="let order of orders.data | filter:searchText">
                   <tr>
                     <td>
                       {{order._id}}

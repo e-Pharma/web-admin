@@ -14,9 +14,9 @@ import { DomSanitizer } from "@angular/platform-browser";
 })
 export class DispatchedOrderComponent implements OnInit {
   deliveryPersons: any = [];
-  delivery_lat:string;
-  delivery_long:string;
-  delivery_name:string;
+  delivery_lat: string;
+  delivery_long: string;
+  delivery_name: string;
   errMsg: string;
   //Location of the Client (Pharmacy)
   lat = 6.93197;
@@ -47,78 +47,60 @@ export class DispatchedOrderComponent implements OnInit {
     private deliveryPersonService: DeliveryPersonService,
     private medicineserachService: MedicineserachService,
     private route: ActivatedRoute,
-    private orderService: OrderService,private sanitizer: DomSanitizer,
+    private orderService: OrderService,
+    private sanitizer: DomSanitizer
   ) {
     this.readDeliveryPersons();
     this.socket = io("https://e-pharma-server.herokuapp.com");
   }
-async getOrderDetails(){
-  
-  this.id = this.route.snapshot.paramMap.get("id");
-  await this.orderService.getSpecificOrders(this.id).subscribe(
-    (order) => {
-      // console.log(order),
-      console.log("first here"),
-        (this.prescriptionURL = order.prescription_url),
-        (this.order = order)(
-          // console.log(order),
-          (this.imageSource = this.sanitizer.bypassSecurityTrustResourceUrl(
-            ` ${order.prescription_url}`
-          ))
-        );
-        
-        
-    },
-    (errmsg) => (this.errMsg = <any>errmsg)
-    
-
-  );
-}
-
-getDriverLocation(){
-  console.log('finally')
-     this.deliveryPersons.data.forEach(element => {
-      if(element['_id'] === this.order['driver']){
-        console.log("one")
-        this.delivery_lat=element['lat']
-        this.delivery_long=element['long']
-        this.delivery_name=element['user_name']
-      }
-      else console.log("three")
-      // console.log("three")
-      // console.log(element)
-      
-      
-    });
-}
-   async readDeliveryPersons() {
-    
-    await this.deliveryPersonService.getDeliveryPersons().subscribe((data) => {
-      this.deliveryPersons = data;
-      console.log('second here')
-      // console.log(this.deliveryPersons.data);
-      // console.log(this.deliveryPersons.data[0]['_id']);
-      
-     
-    });
-    
+  async getOrderDetails() {
+    this.id = this.route.snapshot.paramMap.get("id");
+    await this.orderService.getSpecificOrders(this.id).subscribe(
+      (order) => {
+        // console.log(order),
+        console.log("first here"),
+          (this.prescriptionURL = order.prescription_url),
+          (this.order = order)(
+            // console.log(order),
+            (this.imageSource = this.sanitizer.bypassSecurityTrustResourceUrl(
+              ` ${order.prescription_url}`
+            ))
+          );
+      },
+      (errmsg) => (this.errMsg = <any>errmsg)
+    );
   }
 
- 
+  getDriverLocation() {
+    console.log("finally");
+    this.deliveryPersons.data.forEach((element) => {
+      if (element["_id"] === this.order["driver"]) {
+        console.log("one");
+        this.delivery_lat = element["lat"];
+        this.delivery_long = element["long"];
+        this.delivery_name = element["user_name"];
+      } else console.log("three");
+      // console.log("three")
+      // console.log(element)
+    });
+  }
+  async readDeliveryPersons() {
+    await this.deliveryPersonService.getDeliveryPersons().subscribe((data) => {
+      this.deliveryPersons = data;
+      console.log("second here");
+      // console.log(this.deliveryPersons.data);
+      // console.log(this.deliveryPersons.data[0]['_id']);
+    });
+  }
 
-   ngOnInit(): void{
-     this.getOrderDetails()
+  ngOnInit(): void {
+    this.getOrderDetails();
     this.readDeliveryPersons();
     this.getDriverLocation();
     this.socket.on("locationUpdated", () => {
       this.readDeliveryPersons();
     });
-    
+
     // console.log(this.id);
-    
-
-    
-
-
   }
 }
