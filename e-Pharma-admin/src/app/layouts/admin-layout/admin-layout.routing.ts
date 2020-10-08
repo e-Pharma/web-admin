@@ -23,6 +23,8 @@ import { AssignDriverComponent } from "app/assign-driver/assign-driver.component
 import { DispatchedOrderComponent } from "app/dispatched-order/dispatched-order.component";
 import { DeliveredOrderComponent } from "app/delivered-order/delivered-order.component";
 import { AccInfoComponent } from "app/acc-info/acc-info.component";
+import { FeedbackComponent } from "app/feedback/feedback.component";
+import { AddMedicineComponent } from "app/add-medicine/add-medicine.component";
 
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
@@ -48,5 +50,6 @@ export const AdminLayoutRoutes: Routes = [
   { path: "dispatchorder/:id", component: DispatchedOrderComponent },
   { path: "deliveredorder/:id", component: DeliveredOrderComponent },
   { path: "acc-info", component: AccInfoComponent },
-  
+  { path: "client/orderFeedback/:id", component: FeedbackComponent },
+  { path: "medicine", component: AddMedicineComponent}
 ];
