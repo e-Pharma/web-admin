@@ -88,6 +88,7 @@
                       <th>Name</th>
                       <th>Unit Price</th>
                       <th>Quantity</th>
+                      <th>Price</th>
                       <th></th>
                     </thead>
 
@@ -104,6 +105,9 @@
                         </td>
                         <td>
                           {{ med.quantity }}
+                        </td>
+                        <td>
+                          {{ med.quantity*med.unit_price}}
                         </td>
                       </tr>
                     </tbody>
@@ -122,7 +126,14 @@
                   </mat-form-field>
                 </div>
               </div>
-
+              <button
+                mat-raised-button
+                type="submit"
+                class="btn btn-danger pull-right"
+                (click)="reject()"
+              >
+                Reject Order
+              </button>
               <div class="clearfix"></div>
             </form>
           </div>
@@ -130,7 +141,7 @@
       </div>
       <div class="col-md-4">
         <a href="javascript:void(0)">
-          <img class="img" [src]="imageSource" />
+          <img width="500" height="500" class="img" [src]="imageSource" />
         </a>
 
         <br />
@@ -138,7 +149,7 @@
           mat-raised-button
           type="submit"
           class="btn btn-info pull-center"
-          (click)="ocr()" 
+          (click)="ocr()"
         >
           Get Text Suggestions
         </button>
