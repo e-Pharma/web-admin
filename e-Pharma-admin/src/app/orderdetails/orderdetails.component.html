@@ -80,10 +80,15 @@
                 </div>
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
-                    <input [(value)]=deliveryCharge matInput placeholder="Delivery charge (Rs.)" type="text" /> 
+                    <input
+                      [(value)]="deliveryCharge"
+                      matInput
+                      placeholder="Delivery charge (Rs.)"
+                      type="text"
+                    />
                   </mat-form-field>
                 </div>
-              </div>  
+              </div>
 
               <div class="row">
                 <div class="col-md-4">
@@ -96,7 +101,7 @@
                   </button>
                 </div>
 
-                <div class="col-md-4" *ngIf="addMed"> 
+                <div class="col-md-4" *ngIf="addMed">
                   <app-addmedicine
                     [(searchModel)]="searchModel"
                   ></app-addmedicine>
@@ -114,18 +119,10 @@
                 <div class="col-md-12">
                   <table class="table">
                     <thead class="text-primary">
-                      <th>
-                        ID
-                      </th>
-                      <th>
-                        Name
-                      </th>
-                      <th>
-                        Unit Price
-                      </th>
-                      <th>
-                        Quantity 
-                      </th>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Unit Price</th>
+                      <th>Quantity</th>
                       <th></th>
                     </thead>
 
@@ -204,6 +201,16 @@
                 mat-raised-button
                 type="submit"
                 class="btn btn-danger pull-right"
+                (click)="reject()"
+              >
+                Reject Order
+              </button>
+              <div class="divider">&nbsp;</div>
+             
+              <button
+                mat-raised-button
+                type="submit"
+                class="btn btn-info pull-right"
                 (click)="review()"
               >
                 Review Order
@@ -215,9 +222,9 @@
       </div>
       <div class="col-md-4">
         <a href="javascript:void(0)">
-          <img class="img" [src]="imageSource" />
+          <img width="500" height="500" class="img" [src]="imageSource" />
         </a>
-        
+
         <br />
         <button
           mat-raised-button
@@ -227,7 +234,7 @@
         >
           Get Text Suggestions
         </button>
-        <p  *ngIf="textSuggetions">Suggested Text</p>
+        <p *ngIf="textSuggetions">Suggested Text</p>
         <ul>
           <li *ngFor="let text of texts">
             {{ text }}

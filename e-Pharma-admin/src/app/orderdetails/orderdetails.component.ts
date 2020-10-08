@@ -158,6 +158,26 @@ if(this.bl==false){
     );
   }
 
+  reject(){
+    var doc = {
+      status: "rejected",
+    };
+
+    this.orderService.updateOrder(doc, this.id).subscribe(
+      (res) => {
+        if (res["status"] == 202) {
+          window.alert("done");
+          this.router.navigate(["/dashboard"]);
+        }
+      },
+      (errmsg) => {
+        this.errMsg = <any>errmsg;
+        console.log(this.errMsg);
+        window.alert("error");
+      }
+    );
+  }
+
   ocr() {
     // var doc = {
     //   "Url":" "+this.prescriptionURL+" ",
