@@ -53,12 +53,14 @@ export class OrdersComponent implements OnInit {
     else if(selected=='completed'){
       this.buttonStr = 'View Order'
       this.urlStr = '/deliveredorder'
+      
     }
     else if(selected=='rejected'){
       this.buttonStr = ''
     }
     this.orderService.getOrders(selected).subscribe(
       (orders) => (this.orders = orders),
+      
       (errmsg) => (this.errMsg = <any>errmsg)
     );
 

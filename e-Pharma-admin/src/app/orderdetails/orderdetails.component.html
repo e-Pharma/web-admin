@@ -36,7 +36,7 @@
                   <mat-form-field class="example-full-width">
                     <input
                       matInput
-                      value="{{ order.name }}"
+                      value="{{ order.patient }}"
                       placeholder="Client's Name"
                       type="text"
                       disabled
@@ -80,7 +80,7 @@
                 </div>
                 <div class="col-md-4">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Delivery charge" type="text" />
+                    <input [(value)]=deliveryCharge matInput placeholder="Delivery charge (Rs.)" type="text" /> 
                   </mat-form-field>
                 </div>
               </div>  
