@@ -15,4 +15,6 @@ export class Order {
   is_delivered: boolean;
   status: string;
   completed_on: Date;
+  lat: Number;
+  long:number;
 }
